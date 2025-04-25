@@ -1,0 +1,100 @@
+import { Reducer } from '@/redux-fix';
+import { createSlice, PayloadAction, Slice } from '@/redux-fix';
+import { OFFER_TYPE } from '../../../pages/CreateOffer/Main';
+import { Pretty } from '../../../types/globalTypes';
+import { RootState } from '../../store';
+import { UserSelectedOffer } from '../currentOffer/currentOfferSlice';
+// Define state type
+interface CartState {
+  // TODO: Add your state properties here
+  // This is a placeholder to fix type errors
+  [key: string]: any;
+}
+
+export type CartItemType = (typeof OFFER_TYPE)[keyof typeof OFFER_TYPE];
+export type UserSelectedCurrencyOffer = Pretty<
+  {
+    characterName: string;
+    amount: number;
+  } & Omit<UserSelectedOffer, 'filters' | 'isDiscountApplied'>
+>;
+export type CartItem = {
+  itemId: number;
+  seller: string;
+  offerId: string;
+  offerName: string;
+  offerImage: string;
+  totalPrice?: number;
+} & (
+  | {
+      itemType: 'regular';
+      selected: Pretty<UserSelectedOffer>;
+    }
+  | {
+      itemType: 'currency';
+      selected: UserSelectedCurrencyOffer;
+    }
+);
+
+type Cart = {
+  isOpen: boolean;
+  items: CartItem[];
+  itemsTotal: number;
+  subTotal: number;
+};
+
+const initialState: Cart = {
+  isOpen: false,
+  itemsTotal: 0,
+  subTotal: 0,
+  items: [],
+};
+
+export const cartSlice: Slice = createSlice({
+  name: 'cart',
+  initialState,
+  reducers: {
+    openCartModal: (state) => {
+      state.isOpen = true;
+    },
+    closeCartModal: (state) => {
+      state.isOpen = false;
+    },
+    toggleCartModal: (state) => {
+      state.isOpen = !state.isOpen;
+    },
+    addToCart: (state, action: PayloadAction<CartItem>) => {
+      state.items.push({ ...action.payload });
+      state.itemsTotal += action.payload.selected.price;
+    },
+    setItems: (state, action: PayloadAction<CartItem[]>) => {
+      state.items = action.payload;
+    },
+    setItemsTotal: (state, action: PayloadAction<number>) => {
+      state.itemsTotal = action.payload;
+    },
+    setSubTotal: (state, action: PayloadAction<number>) => {
+      state.subTotal = action.payload;
+    },
+
+    removeFromCart: (state, action: PayloadAction<CartItem>) => {
+      state.items = state.items.filter((product) => action.payload.itemId !== product.itemId);
+      state.itemsTotal -= action.payload.selected.price;
+    },
+  },
+});
+export const {
+  openCartModal,
+  closeCartModal,
+  toggleCartModal,
+  addToCart,
+  setItems,
+  setItemsTotal,
+  setSubTotal,
+  removeFromCart,
+} = cartSlice.actions;
+export const cartReducer: Reducer<CartState> = cartSlice.reducer;
+export const selectCartItems = (state: RootState) => state.cart.items;
+export const selectCartItemsCount = (state: RootState) => state.cart.items.length;
+export const selectCartItemsTotal = (state: RootState) => state.cart.itemsTotal;
+export const selectCartSubTotal = (state: RootState) => state.cart.subTotal;

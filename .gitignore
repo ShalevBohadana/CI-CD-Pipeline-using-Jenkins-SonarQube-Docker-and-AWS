@@ -1,0 +1,71 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Diagnostic reports (https://nodejs.org/api/report.html)
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory
+coverage
+*.lcov
+.nyc_output
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Cache directories
+.npm
+.eslintcache
+.stylelintcache
+.cache
+.parcel-cache
+
+# Build outputs
+dist/
+build/
+out/
+
+# Environment files
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+
+# IDE directories
+.vscode/
+.idea/
+.vscode-test
+
+# Local certificates
+/local-certs
+**/local-certs
+
+# Package manager files
+.pnp.*
+.yarn/
+yarn.lock
+package-lock.json
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Project specific
+.temp/
+.cache/tsconfig.tsbuildinfo

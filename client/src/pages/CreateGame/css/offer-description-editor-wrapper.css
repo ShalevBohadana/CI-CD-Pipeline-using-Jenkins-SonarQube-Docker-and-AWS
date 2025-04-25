@@ -1,0 +1,49 @@
+.offer-description-editor-wrapper {
+}
+.offer-description-editor-wrapper .ql-container .ql-editor {
+  @apply min-h-[20rem] text-base leading-none;
+}
+.offer-description-editor-wrapper .ql-editor.ql-blank::before {
+  @apply text-brand-black-60;
+}
+.quill :is(.ql-toolbar.ql-snow, .ql-container.ql-snow) {
+  @apply border-transparent;
+}
+
+.ql-snow .ql-picker-options {
+  @apply bg-brand-black-100;
+}
+
+.ql-toolbar.ql-snow {
+  @apply relative font-oxanium;
+}
+.ql-snow .ql-stroke {
+  @apply stroke-current;
+}
+.ql-snow .ql-fill {
+  @apply fill-current;
+}
+.ql-snow .ql-picker {
+  @apply text-brand-primary-color-light;
+}
+.ql-snow.ql-toolbar .ql-picker-item.ql-selected,
+.ql-snow.ql-toolbar .ql-picker-label.ql-active,
+.ql-snow.ql-toolbar :is(button:hover, .ql-picker-item:hover, .ql-picker-label:hover) {
+  @apply text-brand-primary-color-1;
+}
+.ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke,
+.ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke,
+.ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke,
+.ql-snow.ql-toolbar button:hover .ql-stroke {
+  @apply stroke-brand-primary-color-1;
+}
+.ql-snow.ql-toolbar button:hover .ql-fill {
+  @apply fill-brand-primary-color-1;
+}
+
+.ql-toolbar.ql-snow::after {
+  @apply absolute left-0 bottom-0 w-full h-px bg-fading-theme-gradient-25;
+}
+.ql-toolbar.ql-snow .ql-picker.ql-expanded :is(.ql-picker-label, .ql-picker-options) {
+  @apply border-brand-primary-color-1 rounded-md;
+}

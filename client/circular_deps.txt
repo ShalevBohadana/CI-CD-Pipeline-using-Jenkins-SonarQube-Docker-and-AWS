@@ -1,0 +1,92 @@
+Processed 534 files (1.8s) (42 warnings)
+
+1) redux/features/auth/authApi.ts > pages/Profile/components/AccountInfo.tsx > components/ui/UserImageIcon.tsx
+2) redux/store.ts > redux/api/apiSlice.ts > redux/features/auth/authSlice.ts
+3) redux/store.ts > redux/api/apiSlice.ts
+4) pages/CreateOffer/Main.tsx > components/UsdCurrencySymbol.tsx > components/ui/SelectCurrencyDropdown.tsx > components/ui/SelectedCurrency.tsx > redux/hooks.ts > redux/store.ts > redux/features/cart/cartSlice.ts
+5) pages/CreateOffer/Main.tsx > components/UsdCurrencySymbol.tsx > components/ui/SelectCurrencyDropdown.tsx > components/ui/SelectedCurrency.tsx > redux/hooks.ts > redux/store.ts > redux/features/cart/cartSlice.ts > redux/features/currentOffer/currentOfferSlice.ts
+6) pages/CreateOffer/index.tsx > pages/CreateOffer/Header.tsx
+7) pages/CreateOffer/Main.tsx > components/UsdCurrencySymbol.tsx > components/ui/SelectCurrencyDropdown.tsx > components/ui/SelectedCurrency.tsx > redux/hooks.ts > redux/store.ts > redux/features/cart/cartSlice.ts > redux/features/currentOffer/currentOfferSlice.ts > pages/CreateOffer/index.tsx
+8) redux/hooks.ts > redux/store.ts > redux/features/cart/cartSlice.ts > redux/features/currentOffer/currentOfferSlice.ts > pages/OffersSingle/Main.tsx > components/ui/Money.tsx
+9) pages/CreateOffer/Main.tsx > components/UsdCurrencySymbol.tsx > components/ui/SelectCurrencyDropdown.tsx > components/ui/SelectedCurrency.tsx > redux/hooks.ts > redux/store.ts > redux/features/cart/cartSlice.ts > redux/features/currentOffer/currentOfferSlice.ts > pages/OffersSingle/Main.tsx
+10) pages/CreateOffer/Main.tsx > components/UsdCurrencySymbol.tsx > components/ui/SelectCurrencyDropdown.tsx > components/ui/SelectedCurrency.tsx > redux/hooks.ts > redux/store.ts > redux/features/cart/cartSlice.ts > redux/features/currentOffer/currentOfferSlice.ts > pages/OffersSingle/Main.tsx > pages/OffersSingle/components/DynamicFilterBox.tsx
+11) redux/features/currentOffer/currentOfferSlice.ts > pages/OffersSingle/Main.tsx > pages/OffersSingle/components/DynamicFilterBox.tsx
+12) redux/hooks.ts > redux/store.ts > redux/features/cart/cartSlice.ts > redux/features/currentOffer/currentOfferSlice.ts > pages/OffersSingle/Main.tsx > pages/OffersSingle/components/DynamicFilterBox.tsx
+13) pages/CreateOffer/Main.tsx > components/UsdCurrencySymbol.tsx > components/ui/SelectCurrencyDropdown.tsx > components/ui/SelectedCurrency.tsx > redux/hooks.ts > redux/store.ts > redux/features/cart/cartSlice.ts > redux/features/currentOffer/currentOfferSlice.ts > pages/OffersSingle/Main.tsx > pages/OffersSingle/components/DynamicRegionFilterBox.tsx
+14) redux/features/currentOffer/currentOfferSlice.ts > pages/OffersSingle/Main.tsx > pages/OffersSingle/components/DynamicRegionFilterBox.tsx
+15) redux/hooks.ts > redux/store.ts > redux/features/cart/cartSlice.ts > redux/features/currentOffer/currentOfferSlice.ts > pages/OffersSingle/Main.tsx > pages/OffersSingle/components/DynamicRegionFilterBox.tsx
+16) redux/features/currentOffer/currentOfferSlice.ts > pages/OffersSingle/Main.tsx > pages/OffersSingle/components/OfferDetails.tsx
+17) redux/hooks.ts > redux/store.ts > redux/features/cart/cartSlice.ts > redux/features/currentOffer/currentOfferSlice.ts > pages/OffersSingle/Main.tsx > pages/OffersSingle/components/OfferDetails.tsx
+18) pages/CreateOffer/Main.tsx > components/UsdCurrencySymbol.tsx > components/ui/SelectCurrencyDropdown.tsx > components/ui/SelectedCurrency.tsx > redux/hooks.ts > redux/store.ts > redux/features/cart/cartSlice.ts > redux/features/currentOffer/currentOfferSlice.ts > pages/OffersSingle/Main.tsx > pages/OffersSingle/components/ShowGameOffersCategories.tsx
+19) redux/features/cart/cartSlice.ts > redux/features/currentOffer/currentOfferSlice.ts > pages/OffersSingle/Main.tsx
+20) redux/features/currentOffer/currentOfferSlice.ts > pages/OffersSingle/Main.tsx
+21) pages/CreateGame/components/Main.tsx > components/ui/GameUpsellDisplay.tsx
+22) pages/CreateOffer/Main.tsx > components/UsdCurrencySymbol.tsx > components/ui/SelectCurrencyDropdown.tsx > components/ui/SelectedCurrency.tsx > redux/hooks.ts > redux/store.ts > redux/features/cart/cartSlice.ts > redux/features/currentOffer/currentOfferSlice.ts > pages/OffersSingle/Main.tsx > redux/features/game/gameApi.ts > pages/CreateGame/components/Main.tsx
+23) redux/features/game/gameApi.ts > pages/CreateGame/components/Main.tsx
+24) redux/store.ts > redux/features/cart/cartSlice.ts > redux/features/currentOffer/currentOfferSlice.ts > pages/OffersSingle/Main.tsx > redux/features/game/gameApi.ts > pages/CreateGame/components/Main.tsx > utils/upload.ts
+25) pages/CreateOffer/Main.tsx > components/UsdCurrencySymbol.tsx > components/ui/SelectCurrencyDropdown.tsx > components/ui/SelectedCurrency.tsx > redux/hooks.ts > redux/store.ts > redux/features/cart/cartSlice.ts > redux/features/currentOffer/currentOfferSlice.ts > pages/OffersSingle/Main.tsx > redux/features/game/gameApi.ts
+26) components/UsdCurrencySymbol.tsx > components/ui/SelectCurrencyDropdown.tsx > components/ui/SelectedCurrency.tsx > redux/hooks.ts > redux/store.ts > redux/features/cart/cartSlice.ts > redux/features/currentOffer/currentOfferSlice.ts > pages/OffersSingle/Main.tsx > redux/features/gameCurrency/gameCurrencyApi.ts > pages/CreateGameCurrency/Main.tsx
+27) pages/CreateGameCurrency/Main.tsx > pages/CreateGameCurrency/components/DynamicFilterFieldArray.tsx
+28) pages/CreateGameCurrency/Main.tsx > pages/CreateGameCurrency/components/DynamicFilterFieldArray.tsx > pages/CreateGameCurrency/components/NestedFieldArray.tsx
+29) pages/CreateGameCurrency/Main.tsx > pages/CreateGameCurrency/components/ServersFieldArray.tsx
+30) pages/CreateOffer/Main.tsx > components/UsdCurrencySymbol.tsx > components/ui/SelectCurrencyDropdown.tsx > components/ui/SelectedCurrency.tsx > redux/hooks.ts > redux/store.ts > redux/features/cart/cartSlice.ts > redux/features/currentOffer/currentOfferSlice.ts > pages/OffersSingle/Main.tsx > redux/features/gameCurrency/gameCurrencyApi.ts > pages/CreateGameCurrency/Main.tsx
+31) redux/features/auth/authApi.ts > pages/Profile/components/AccountInfo.tsx > pages/RateOrder/Main.tsx > pages/CreateOffer/Main.tsx > components/UsdCurrencySymbol.tsx > components/ui/SelectCurrencyDropdown.tsx > components/ui/SelectedCurrency.tsx > redux/hooks.ts > redux/store.ts > redux/features/cart/cartSlice.ts > redux/features/currentOffer/currentOfferSlice.ts > pages/OffersSingle/Main.tsx > redux/features/gameCurrency/gameCurrencyApi.ts > pages/CreateGameCurrency/Main.tsx
+32) redux/features/gameCurrency/gameCurrencyApi.ts > pages/CreateGameCurrency/Main.tsx
+33) pages/CreateOffer/Main.tsx > components/UsdCurrencySymbol.tsx > components/ui/SelectCurrencyDropdown.tsx > components/ui/SelectedCurrency.tsx > redux/hooks.ts > redux/store.ts > redux/features/cart/cartSlice.ts > redux/features/currentOffer/currentOfferSlice.ts > pages/OffersSingle/Main.tsx > redux/features/gameCurrency/gameCurrencyApi.ts > pages/CreateGameCurrency/Main.tsx > redux/features/offer/offerApi.ts
+34) components/UsdCurrencySymbol.tsx > components/ui/SelectCurrencyDropdown.tsx > components/ui/SelectedCurrency.tsx > redux/hooks.ts > redux/store.ts > redux/features/cart/cartSlice.ts > redux/features/currentOffer/currentOfferSlice.ts > pages/OffersSingle/Main.tsx > redux/features/gameCurrency/gameCurrencyApi.ts > pages/CreateGameCurrency/Main.tsx > redux/features/promo/promoApi.ts > pages/CreatePromo/Main.tsx
+35) pages/CreateOffer/Main.tsx > components/UsdCurrencySymbol.tsx > components/ui/SelectCurrencyDropdown.tsx > components/ui/SelectedCurrency.tsx > redux/hooks.ts > redux/store.ts > redux/features/cart/cartSlice.ts > redux/features/currentOffer/currentOfferSlice.ts > pages/OffersSingle/Main.tsx > redux/features/gameCurrency/gameCurrencyApi.ts > pages/CreateGameCurrency/Main.tsx > redux/features/promo/promoApi.ts > pages/CreatePromo/Main.tsx
+36) redux/features/promo/promoApi.ts > pages/CreatePromo/Main.tsx
+37) pages/CreateGameCurrency/index.tsx > pages/CreateGameCurrency/Header.tsx
+38) pages/RateOrder/Main.tsx > pages/CreateOffer/Main.tsx > components/UsdCurrencySymbol.tsx > components/ui/SelectCurrencyDropdown.tsx > components/ui/SelectedCurrency.tsx > redux/hooks.ts > redux/store.ts > redux/features/cart/cartSlice.ts > redux/features/currentOffer/currentOfferSlice.ts > pages/OffersSingle/Main.tsx > redux/features/gameCurrency/gameCurrencyApi.ts > pages/CreateGameCurrency/index.tsx
+39) redux/hooks.ts > redux/store.ts > redux/features/cart/cartSlice.ts > redux/features/currentOffer/currentOfferSlice.ts > pages/OffersSingle/Main.tsx
+40) redux/store.ts > redux/features/cart/cartSlice.ts > redux/features/currentOffer/currentOfferSlice.ts
+41) redux/store.ts > redux/features/cart/cartSlice.ts
+42) components/ui/SelectCurrencyDropdown.tsx > components/ui/SelectedCurrency.tsx > redux/hooks.ts > redux/store.ts > redux/features/currency/currencySlice.ts
+43) redux/store.ts > redux/features/game/gameSlice.ts
+44) redux/store.ts > redux/features/socket/socketSlice.ts
+45) redux/store.ts > redux/features/sort/sortSlice.ts
+46) pages/CreateOffer/Main.tsx > pages/CreateOffer/FieldArray.tsx
+47) pages/CreateOffer/Main.tsx > pages/CreateOffer/FieldArray.tsx > pages/CreateOffer/NestedFieldArray.tsx
+48) pages/CreateOffer/Main.tsx > pages/CreateOffer/FieldArray.tsx > pages/CreateOffer/NestedFieldArray.tsx > pages/CreateOffer/NestedFieldArrayLevelTwo.tsx
+49) redux/features/auth/authApi.ts > pages/Profile/components/AccountInfo.tsx > pages/RateOrder/Main.tsx > pages/CreateOffer/Main.tsx
+50) pages/Profile/components/AccountInfo.tsx > pages/RateOrder/Main.tsx > pages/MyOrders/components/OrderItem.tsx
+51) pages/Profile/components/AccountInfo.tsx > pages/RateOrder/Main.tsx
+52) pages/RateOrder/Main.tsx > redux/features/orderReview/orderReviewApi.ts
+53) redux/features/auth/authApi.ts > pages/Profile/components/AccountInfo.tsx
+54) pages/Profile/components/AccountInfo.tsx > redux/features/user/userApi.ts
+55) redux/features/wallet/walletApi.ts > pages/BalanceRecharge/Main.tsx
+56) pages/BecomeBooster/BecomeBoosterForm.tsx > redux/features/becomeBooster/becomeBoosterApi.ts
+57) pages/BecomeBooster/BecomeBoosterForm.tsx > redux/features/becomeBooster/becomeBoosterApi.ts > pages/Dashboard/Admin/components/WorkWithUsSummaryItem.tsx
+58) pages/BecomeCurrencySeller/BecomeCurrencySellerForm.tsx > redux/features/becomeCurrencySeller/becomeCurrencySellerApi.ts
+59) pages/Dashboard/Admin/components/WorkWithUsSummaryItem.tsx > pages/BecomeCurrencySeller/BecomeCurrencySellerForm.tsx > redux/features/becomeCurrencySeller/becomeCurrencySellerApi.ts
+60) pages/BecomeCurrencySupplier/BecomeCurrencySupplierForm.tsx > redux/features/becomeCurrencySupplier/becomeCurrencySupplierApi.ts
+61) pages/Dashboard/Admin/components/WorkWithUsSummaryItem.tsx > pages/BecomeCurrencySupplier/BecomeCurrencySupplierForm.tsx > redux/features/becomeCurrencySupplier/becomeCurrencySupplierApi.ts
+62) pages/Dashboard/Admin/WorkWithUsApproval/index.tsx > pages/Dashboard/Admin/WorkWithUsApproval/Main.tsx > pages/Dashboard/Admin/WorkWithUsApproval/components/WorkWithUsSummaryModal.tsx > pages/Dashboard/Admin/WorkWithUsApproval/components/WorkWithUsSummaryModalContent.tsx
+63) redux/features/becomeBooster/becomeBoosterApi.ts > pages/Dashboard/Admin/components/WorkWithUsSummaryItem.tsx > pages/Dashboard/Admin/WorkWithUsApproval/index.tsx > pages/Dashboard/Admin/WorkWithUsApproval/Main.tsx > pages/Dashboard/Admin/WorkWithUsApproval/components/WorkWithUsSummaryModal.tsx > pages/Dashboard/Admin/WorkWithUsApproval/components/WorkWithUsSummaryModalContent.tsx
+64) pages/Dashboard/Admin/WorkWithUsApproval/index.tsx > pages/Dashboard/Admin/WorkWithUsApproval/Main.tsx > pages/Dashboard/Admin/WorkWithUsApproval/components/WorkWithUsSummaryModal.tsx
+65) pages/Dashboard/Admin/WorkWithUsApproval/index.tsx > pages/Dashboard/Admin/WorkWithUsApproval/Main.tsx
+66) pages/Dashboard/Admin/components/WorkWithUsSummaryItem.tsx > pages/Dashboard/Admin/WorkWithUsApproval/index.tsx > pages/Dashboard/Admin/WorkWithUsApproval/Main.tsx
+67) pages/Dashboard/Admin/components/WorkWithUsSummaryItem.tsx > pages/Dashboard/Admin/WorkWithUsApproval/index.tsx
+68) redux/features/becomeBooster/becomeBoosterApi.ts > pages/Dashboard/Admin/components/WorkWithUsSummaryItem.tsx > pages/Dashboard/Admin/WorkWithUsApproval/index.tsx
+69) pages/Profile/components/PaymentGatewayItem.tsx > pages/Profile/components/WalletDepositTabContent.tsx
+70) pages/TermsAndConditions/components/TermsOfServiceList.tsx > pages/TermsAndConditions/components/ShowTOSList.tsx
+71) pages/CreateGameCurrencyOffer/Main.tsx > pages/CreateGameCurrencyOffer/components/DynamicItemsFieldArray.tsx
+72) pages/CreateGameCurrencyOffer/Main.tsx > redux/features/gameCurrencyOffer/gameCurrencyOfferApi.ts
+73) pages/CreateGameCurrencyOffer/index.tsx > pages/CreateGameCurrencyOffer/Main.tsx > redux/features/gameCurrencyOffer/gameCurrencyOfferApi.ts
+74) pages/Dashboard/components/ManageUserMenu.tsx > pages/Dashboard/components/ManageUserCard.tsx
+75) pages/Dashboard/Admin/Finances/index.tsx > pages/Dashboard/Admin/Finances/Main.tsx > pages/Dashboard/Admin/Finances/components/AdminFinancesSummaryModal.tsx > pages/Dashboard/Admin/Finances/components/AdminFinancesSummaryModalContent.tsx
+76) pages/Dashboard/Admin/Finances/index.tsx > pages/Dashboard/Admin/Finances/Main.tsx > pages/Dashboard/Admin/Finances/components/AdminFinancesSummaryModal.tsx
+77) pages/Dashboard/Admin/Finances/index.tsx > pages/Dashboard/Admin/Finances/Main.tsx > pages/Dashboard/Admin/components/AdminFinancesSummaryItem.tsx
+78) pages/Dashboard/Admin/components/TicketSummaryItem.tsx > pages/Support/components/SupportForm.tsx > redux/features/ticket/ticketApi.ts
+79) pages/Support/components/SupportForm.tsx > redux/features/ticket/ticketApi.ts
+80) pages/Home/LatestGamesOffers.tsx > components/ui/LatestOffersCategorySlider.tsx
+81) pages/Home/LatestGamesOffers.tsx > pages/Home/components/ShowLatestOfferGames.tsx
+82) pages/OrderReview/index.tsx > pages/OrderReview/Header.tsx
+83) pages/OrderReview/index.tsx > pages/OrderReview/Main.tsx
+84) pages/Profile/components/Wallet.tsx > pages/Profile/components/WalletWithdrawalTabContent.tsx
+85) pages/SupportTicketSummary/index.tsx > pages/SupportTicketSummary/Header.tsx
+86) pages/SupportTicketSummary/index.tsx > pages/SupportTicketSummary/Main.tsx
+87) pages/WorkWithUs/ChoseARole.tsx > pages/WorkWithUs/components/RoleCard.tsx
+88) pages/WorkWithUs/WhyBestPlatform.tsx > pages/WorkWithUs/components/BestPlatformCard.tsx
+89) pages/Currencies/Main.tsx > pages/Currencies/components/CurrencyCard.tsx > pages/Currencies/index.tsx
+

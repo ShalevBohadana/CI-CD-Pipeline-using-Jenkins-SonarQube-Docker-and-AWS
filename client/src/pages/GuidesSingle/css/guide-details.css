@@ -1,0 +1,10 @@
+[data-dynamic-markup='guide-details'] h1 {
+  @apply relative z-0 isolate text-xl xl:text-2xl text-brand-primary-color-1;
+}
+[data-dynamic-markup='guide-details'] h1::after {
+  content: '';
+  @apply absolute left-0 -bottom-1 w-full h-px bg-[linear-gradient(293deg,var(--tw-gradient-stops))] to-brand-primary-color-1/30 from-brand-primary-color-1/5;
+}
+[data-dynamic-markup='guide-details'] ul li {
+  @apply list-disc list-inside;
+}

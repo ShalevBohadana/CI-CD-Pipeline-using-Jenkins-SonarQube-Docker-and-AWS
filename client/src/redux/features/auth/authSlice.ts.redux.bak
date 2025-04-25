@@ -1,0 +1,229 @@
+import { jwtDecode } from 'jwt-decode';
+import type { PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, Slice } from '@reduxjs/toolkit';
+import { RootState } from '../../store';
+import type { User, USER_ROLE_ENUM } from '../../../types/user';
+
+import { ExactlyOneProp, Pretty } from '../../../types/globalTypes';
+import { DISCORD_CODE_PREFIX } from '../../../utils/constants';
+
+// Constants
+const AUTH_TOKEN_KEY = 'auth_token';
+const AUTH_USER_DATA_KEY = 'auth_user_data';
+
+export type Credentials = {
+  email: string;
+  password: string;
+};
+export interface TUserData {
+  userId: string;
+  email?: string;
+  name?: string;
+  roles: USER_ROLE_ENUM[];
+  avatar?: string;
+  exp: number;
+  iat?: number;
+}
+export type CredentialsSocial = Pretty<
+  ExactlyOneProp<{
+    code: string;
+    email: string;
+  }>
+>;
+
+// Helper functions for managing persistence
+const getStoredToken = (): string => {
+  try {
+    return localStorage.getItem(AUTH_TOKEN_KEY) || '';
+  } catch {
+    return '';
+  }
+};
+
+const getStoredUserData = (): User | undefined => {
+  try {
+    const token = getStoredToken();
+    if (!token) return undefined;
+    return jwtDecode<User>(token);
+  } catch {
+    return undefined;
+  }
+};
+
+const persistAuthData = (token: string) => {
+  try {
+    localStorage.setItem(AUTH_TOKEN_KEY, token);
+  } catch (error) {
+    console.error('Failed to persist auth data:', error);
+  }
+};
+
+const clearAuthData = () => {
+  try {
+    localStorage.removeItem(AUTH_TOKEN_KEY);
+    localStorage.removeItem(AUTH_USER_DATA_KEY);
+  } catch (error) {
+    console.error('Failed to clear auth data:', error);
+  }
+};
+
+export interface AuthState {
+  user: User | null;
+  token: string | null;
+  isAuthenticated: boolean;
+  isLoading: boolean;
+  status: 'idle' | 'loading' | 'succeeded' | 'failed';
+  error: string | null;
+}
+
+const initialState: AuthState = {
+  user: null,
+  token: getStoredToken(),
+  isAuthenticated: Boolean(getStoredToken()),
+  isLoading: false,
+  status: 'idle',
+  error: null,
+};
+
+/**
+ * The function `getDiscordCodeFromMessage` listens for a message event and resolves with the Discord
+ * code extracted from the event data if it contains the specified prefix.
+ * @returns The function returns a Promise that resolves to an object containing the Discord code
+ * value and count.
+ */
+export const getDiscordCodeFromMessage = (): Promise<{
+  value: string;
+  count: number;
+}> => {
+  const discordCodeConfig = {
+    value: '',
+    count: 0,
+  };
+  return new Promise<{
+    value: string;
+    count: number;
+  }>((resolve) => {
+    const handleMessageEvent = (event: MessageEvent) => {
+      if (typeof event?.data !== 'string' || !event?.data.includes(DISCORD_CODE_PREFIX)) return;
+
+      const discordCode = event?.data?.split(DISCORD_CODE_PREFIX)?.pop();
+      if (discordCode) {
+        discordCodeConfig.value = discordCode;
+        discordCodeConfig.count += 1;
+
+        window.removeEventListener('message', handleMessageEvent);
+        resolve(discordCodeConfig);
+      }
+    };
+
+    window.addEventListener('message', handleMessageEvent, false);
+  });
+};
+
+// Add explicit typing for the slice
+export const authSlice: Slice<AuthState> = createSlice({
+  name: 'auth',
+  initialState,
+  reducers: {
+    setUserAuth: (state, action: PayloadAction<string>) => {
+      const token = action.payload;
+      persistAuthData(token);
+
+      try {
+        const decodedData = jwtDecode<TUserData>(token);
+        state.token = token;
+
+        // First ensure we have a roles array of USER_ROLE_ENUM
+        const userRoles = decodedData.roles || [];
+
+        // Create a typed user object with the correct USER_ROLE_ENUM[] type for roles
+        const userObj = {
+          _id: decodedData.userId,
+          userId: decodedData.userId,
+          roles: userRoles,
+          email: decodedData.email || '',
+          isEmailVerified: false,
+          online: false,
+          userName: decodedData.name || '',
+          avatar: decodedData.avatar || '',
+          createdAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString(),
+          reviews: [],
+          ban: false,
+        } as User; // This assertion tells TypeScript to trust our type
+
+        state.user = userObj;
+        state.isAuthenticated = true;
+      } catch (error) {
+        console.error('Failed to decode token:', error);
+      }
+    },
+
+    setLoading: (state, action: PayloadAction<boolean>) => {
+      // Implementation needed
+    },
+
+    userLogOut: (state) => {
+      clearAuthData();
+      state.token = null;
+      state.user = null;
+      state.isAuthenticated = false;
+    },
+
+    // Optional: Add refreshToken action if needed
+    refreshToken: (state, action: PayloadAction<string>) => {
+      state.token = action.payload;
+      try {
+        const decodedData = jwtDecode<TUserData>(action.payload);
+        persistAuthData(action.payload);
+
+        // First ensure we have a roles array of USER_ROLE_ENUM
+        const userRoles = decodedData.roles || [];
+
+        // Create a typed user object with the correct USER_ROLE_ENUM[] type for roles
+        const userObj = {
+          _id: decodedData.userId,
+          userId: decodedData.userId,
+          roles: userRoles,
+          email: decodedData.email || '',
+          isEmailVerified: false,
+          online: false,
+          userName: decodedData.name || '',
+          avatar: decodedData.avatar || '',
+          createdAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString(),
+          reviews: [],
+          ban: false,
+        } as User; // This assertion tells TypeScript to trust our type
+
+        state.user = userObj;
+        state.isAuthenticated = true;
+      } catch (error) {
+        console.error('Failed to refresh token:', error);
+      }
+    },
+  },
+});
+
+// Export actions
+export const { setUserAuth, setLoading, userLogOut, refreshToken } = authSlice.actions;
+
+// Export reducer
+export const authReducer = authSlice.reducer;
+
+// Export selectors
+export const selectAuthToken = (state: RootState) => state.auth.token;
+export const selectUserId = (state: RootState) => state.auth.user?._id;
+export const selectAuthData = (state: RootState) => state.auth.user;
+export const selectUserRoles = (state: RootState) => state.auth.user?.roles;
+export const selectIsAuthenticated = (state: RootState) => Boolean(state.auth.token);
+
+// Optional: Export a function to check token expiration
+export const isTokenExpired = (token: string): boolean => {
+  try {
+    const decoded = jwtDecode<User & { exp: number }>(token);
+    return Date.now() >= decoded.exp * 1000;
+  } catch {
+    return true;
+  }
+};

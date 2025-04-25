@@ -1,0 +1,15 @@
+import React from 'react';
+import { Dialog as HeadlessDialog } from '@headlessui/react';
+
+// יצירת הקומפוננטה פשוטה שמעבירה את כל ה-props
+const Dialog = (props) => {
+  return <HeadlessDialog {...props} />;
+};
+
+// העברת כל תת-קומפוננטות
+Dialog.Panel = HeadlessDialog.Panel;
+Dialog.Title = HeadlessDialog.Title;
+Dialog.Description = HeadlessDialog.Description;
+
+export { Dialog };
+export default Dialog;

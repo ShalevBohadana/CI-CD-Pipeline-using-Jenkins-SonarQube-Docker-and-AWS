@@ -1,0 +1,17 @@
+.games-slider {
+}
+.games-slider :is(.swiper-pagination, .games-slider-navigation) {
+  @apply xl:max-w-md xl:right-8 xl:ml-auto;
+}
+.games-slider .swiper-pagination {
+  @apply bottom-3 xl:bottom-8;
+}
+.games-slider .games-slider-navigation {
+  @apply w-full shrink-0 bottom-3.5 xl:bottom-12 -left-full xl:-left-[30rem];
+}
+.games-slider .swiper-scrollbar {
+  --swiper-scrollbar-border-radius: theme(borderRadius.none);
+  --swiper-scrollbar-bg-color: theme(colors.brand.black.5/.1);
+  --swiper-scrollbar-drag-bg-color: theme(colors.brand.primary.color-1);
+  @apply !w-full !left-0 !bottom-0;
+}

@@ -1,0 +1,41 @@
+import { createSlice } from '@reduxjs/toolkit';
+
+import { RootState } from '../../store';
+
+type sortState = {
+  sort: {
+    game: string;
+    status: string;
+  };
+};
+
+const initialState: sortState = {
+  sort: {
+    game: '',
+    status: '',
+  },
+};
+
+export const sortSlice = createSlice({
+  name: 'sort',
+  initialState,
+  reducers: {
+    setActiveSort: (
+      state,
+      {
+        payload,
+      }: {
+        payload: {
+          game: string;
+          status: string;
+        };
+      }
+    ) => {
+      state.sort = payload;
+    },
+  },
+  extraReducers: () => {},
+});
+export const { setActiveSort } = sortSlice.actions;
+export const sortReducer = sortSlice.reducer;
+export const selectActiveSort = (state: RootState) => state.sort.sort;

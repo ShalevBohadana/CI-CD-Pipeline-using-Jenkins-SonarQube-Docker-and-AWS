@@ -1,0 +1,115 @@
+{
+  "id": "1",
+  "uid": "gold",
+  "gameUid": "world-of-warcraft",
+  "name": "Gold",
+  "description": "Description for Gold Currency 1",
+  "filters": [
+    {
+      "id": "f1",
+      "name": "Filter 1",
+      "options": ["Option 1", "Option 2"],
+      "isMultiSelect": true
+    },
+    {
+      "id": "f2",
+      "name": "Filter 2",
+      "options": ["aption Q", "aption 23"],
+      "isMultiSelect": false
+    }
+  ],
+  "servers": [
+    {
+      "id": "s1",
+      "uid": "server1",
+      "currencyUid": "gc1",
+      "gameUid": "game1",
+      "name": "Server 1",
+      "deliveryTime": "1 hour",
+      "inStock": 10,
+      "quantity": 1000,
+      "price": 100,
+      "rating": 4.5,
+      "reviewCount": 20,
+      "faction": "horde",
+      "details": {
+        "minPurchase": 100,
+        "level": 6,
+        "title": "Title 1",
+        "description": "Description for Server 1 Nihil a quia magni nobis nihil. Quaerat omnis eligendi quis deleniti distinctio sint impedit quia quibusdam. Expedita quia eos reprehenderit perferendis possimus. Illum deserunt id."
+      },
+      "reviews": [
+        {
+          "name": "Player 1",
+          "rating": 5,
+          "date": "2023-08-01",
+          "reviewText": "Review for Server 1"
+        },
+        {
+          "name": "Player 2",
+          "rating": 4,
+          "date": "2023-08-01",
+          "reviewText": "Review for Server 2"
+        },
+        {
+          "name": "Player 12",
+          "rating": 2.5,
+          "date": "2023-08-01",
+          "reviewText": "Review for Server 12"
+        },
+        {
+          "name": "Player 22",
+          "rating": 1,
+          "date": "2023-08-01",
+          "reviewText": "Review for Server 22"
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "uid": "server2",
+      "currencyUid": "gc2",
+      "gameUid": "game1",
+      "name": "Server 2",
+      "deliveryTime": "1 hour",
+      "inStock": 1000000,
+      "quantity": 1000,
+      "price": 100,
+      "rating": 4.5,
+      "reviewCount": 20,
+      "faction": "alliance",
+      "details": {
+        "minPurchase": 100,
+        "level": 2,
+        "title": "Title 2",
+        "description": "Description for Server 2 Et nostrum dolores accusamus nam nihil excepturi ipsam vero dolorum. Velit nesciunt aliquam enim. Eos sunt quas tempore. Ea veniam fugiat explicabo distinctio voluptatem. Possimus tenetur magni libero sint qui. Asperiores voluptate magni quia quia debitis non ratione ullam placeat. Quia et pariatur velit nemo autem repellendus est dignissimos deserunt. Rerum excepturi sed expedita. Voluptatibus delectus et.Sit perferendis iure perferendis magni quod corporis quia magnam. Beatae deserunt aut aut consequuntur doloremque rerum eos eos. Id voluptas est ipsam. Saepe velit commodi natus error libero error dolorem. Accusamus repudiandae quaerat."
+      },
+      "reviews": [
+        {
+          "name": "Player 1",
+          "rating": 5,
+          "date": "2023-08-01",
+          "reviewText": "Review for Server 1"
+        },
+        {
+          "name": "Player 2",
+          "rating": 4,
+          "date": "2023-08-01",
+          "reviewText": "Review for Server 2"
+        },
+        {
+          "name": "Player 12",
+          "rating": 2.5,
+          "date": "2023-08-01",
+          "reviewText": "Review for Server 12"
+        },
+        {
+          "name": "Player 22",
+          "rating": 1,
+          "date": "2023-08-01",
+          "reviewText": "Review for Server 22"
+        }
+      ]
+    }
+  ]
+}

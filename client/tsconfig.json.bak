@@ -1,0 +1,25 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "jsx": "react-jsx",
+    "module": "ESNext",
+    "moduleResolution": "node", // Changed from "bundler"
+    "allowJs": true,
+    "composite": true,
+    "declaration": true,
+    "declarationMap": true,
+    "isolatedModules": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    "types": ["react", "node"],
+    "target": "ESNext", // Added
+    "resolveJsonModule": true // Added
+  },
+  "include": ["src/**/*", "vite-env.d.ts"],
+
+  "exclude": ["node_modules", "build", "dist"]
+}

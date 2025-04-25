@@ -1,0 +1,43 @@
+{
+  "compilerOptions": {
+    // Language and Environment
+    "target": "es2016",
+    "lib": ["ES2020"],
+    "module": "commonjs",
+    "moduleResolution": "node",
+
+    // Paths and Output
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["*"]
+    },
+
+    // Type Checking
+    "strict": true,
+    "noImplicitAny": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+
+    // Module Resolution
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "checkJs": false,
+
+    // Type Declaration Settings
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+
+    // Additional Settings
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "typeRoots": ["./node_modules/@types", "./src/app/types"]
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
+}

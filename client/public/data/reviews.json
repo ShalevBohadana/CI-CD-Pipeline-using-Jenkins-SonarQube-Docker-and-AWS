@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "reviewerName": "JohnDoe123",
+    "rating": 5,
+    "title": "Excellent Product!",
+    "reviewText": "I am extremely satisfied with this product. It exceeded my expectations in every way. Highly recommended!"
+  },
+  {
+    "id": 2,
+    "reviewerName": "HappyCamper",
+    "rating": 4,
+    "title": "Great Value for Money",
+    "reviewText": "For the price I paid, this product is a steal. It performs admirably and has a solid build quality. Only minor complaint is the packaging could have been better."
+  },
+  {
+    "id": 3,
+    "reviewerName": "TechGeek101",
+    "rating": 3,
+    "title": "Perfect for Outdoor Activities. Decent Product, Some Flaws",
+    "reviewText": "The product has good features, but I encountered some issues with the software. The customer support was responsive and helped me resolve the problems."
+  },
+  {
+    "id": 4,
+    "reviewerName": "OutdoorEnthusiast",
+    "rating": 5,
+    "title": "Perfect for Outdoor Activities",
+    "reviewText": "I love this product for my outdoor adventures. It is rugged, waterproof, and the battery life is impressive. A must-have for nature enthusiasts!"
+  },
+  {
+    "id": 5,
+    "reviewerName": "BookLover27",
+    "rating": 4,
+    "title": "Great Read",
+    "reviewText": "This book kept me hooked from start to finish. The characters are well-developed, and the plot twists are mind-blowing. One star deducted as the ending felt rushed."
+  },
+  {
+    "id": 6,
+    "reviewerName": "FitnessFanatic",
+    "rating": 2,
+    "title": "Not as Advertised",
+    "reviewText": "I purchased this fitness equipment based on the advertised features, but some of them don't work as expected. Disappointed with the overall experience."
+  },
+  {
+    "id": 7,
+    "reviewerName": "ChefExtraordinaire",
+    "rating": 5,
+    "title": "A Chef's Dream",
+    "reviewText": "This kitchen tool is a game-changer. It saves so much time and effort in food preparation. The build quality is excellent, and I can't imagine cooking without it now."
+  },
+  {
+    "id": 8,
+    "reviewerName": "GlobeTrotter365",
+    "rating": 4,
+    "title": "Great Travel Companion",
+    "reviewText": "I used this travel gear on my recent trip, and it kept my belongings organized and secure throughout the journey. The only improvement I would suggest is more color options."
+  },
+  {
+    "id": 9,
+    "reviewerName": "MovieBuff88",
+    "rating": 5,
+    "title": "Masterpiece of Cinema",
+    "reviewText": "This movie is an absolute masterpiece. The direction, acting, and storytelling are top-notch. It left me in awe and is now one of my all-time favorites."
+  },
+  {
+    "id": 10,
+    "reviewerName": "PetLover22",
+    "rating": 3,
+    "title": "Good Pet Grooming Tool",
+    "reviewText": "It's a decent pet grooming tool, but the handle could be more comfortable to hold. It gets the job done, but I've seen better options out there."
+  }
+]

@@ -1,0 +1,190 @@
+{
+  "id": "3a95d251-f207-5cae-b6ed-5c8f1b55ce97",
+  "status": "activate",
+  "offerType": "regular",
+  "name": "20 Minute Meetcxg %%^#%^^ing",
+  "uid": "20-minute-meetcxg-ing",
+  "gameUid": "the-legend-of-zelda-breath-of-the-wild",
+  "categoryUid": "boosters-chat-support",
+  "basePrice": 10,
+  "discount": {
+    "amount": 2.25,
+    "type": "fixed"
+  },
+  "description": "<p>Select game</p><p>The Legend Of Zelda: Breath Of The Wild</p><p>Select category</p><p>Boosters Chat Support</p><p>Price</p><p><br></p><p>$</p><p>Offer description</p>",
+  "dynamicFilters": [
+    {
+      "name": "Region",
+      "fee": 0,
+      "type": "radio",
+      "children": [
+        {
+          "name": "us",
+          "fee": 0,
+          "children": []
+        },
+        {
+          "name": "eu",
+          "fee": 0,
+          "children": []
+        },
+        {
+          "name": "uk",
+          "fee": 0,
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "faction",
+      "fee": 0,
+      "type": "checkbox",
+      "children": [
+        {
+          "name": "Horde",
+          "fee": 0,
+          "children": [
+            {
+              "name": "eu",
+              "fee": 5
+            },
+            {
+              "name": "us",
+              "fee": 51
+            },
+            {
+              "name": "uk",
+              "fee": 110
+            }
+          ]
+        },
+        {
+          "name": "alliance",
+          "fee": 0,
+          "children": [
+            {
+              "name": "eu",
+              "fee": 45
+            },
+            {
+              "name": "us",
+              "fee": 4
+            },
+            {
+              "name": "uk",
+              "fee": 10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "level",
+      "fee": 0,
+      "type": "bar",
+      "children": [
+        {
+          "name": "current",
+          "fee": 0,
+          "children": [
+            {
+              "name": "eu",
+              "fee": 5
+            },
+            {
+              "name": "us",
+              "fee": 51
+            },
+            {
+              "name": "uk",
+              "fee": 110
+            }
+          ]
+        },
+        {
+          "name": "desired",
+          "fee": 0,
+          "children": [
+            {
+              "name": "eu",
+              "fee": 45
+            },
+            {
+              "name": "us",
+              "fee": 4
+            },
+            {
+              "name": "uk",
+              "fee": 10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "additional options",
+      "fee": 0,
+      "type": "checkbox",
+      "children": [
+        {
+          "name": "hello world",
+          "fee": 0,
+          "children": [
+            {
+              "name": "eu",
+              "fee": 8
+            },
+            {
+              "name": "us",
+              "fee": 5
+            },
+            {
+              "name": "uk",
+              "fee": 10
+            }
+          ]
+        },
+        {
+          "name": "ne hobby",
+          "fee": 0,
+          "children": [
+            {
+              "name": "us",
+              "fee": 4
+            },
+            {
+              "name": "uk",
+              "fee": 15
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "tags": [
+    {
+      "value": "Algeria",
+      "label": "Algeria"
+    },
+    {
+      "value": "Albania",
+      "label": "Albania"
+    },
+    {
+      "value": "Afghanistan",
+      "label": "Afghanistan"
+    },
+    {
+      "value": "sddg",
+      "label": "sddg"
+    }
+  ],
+  "featuredList": [
+    "Exchange weight myself roof explain plenty stuck congress unusual perfectly two new birds seed dear tie hunt tribe ourselves take border cross tears palace",
+    "Nuts shelter quietly damage river slowly model appearance good over missing ability upper excited changing also president swing hurry development flame steady courage skin",
+    "Swam hurry possible girl importance or another second realize forward inside complete reach great paragraph sleep expression thin office discuss port slave pick tropical"
+  ],
+  "approximateOrderCompletionInMinutes": 150,
+  "image": "https://loremflickr.com/291/300",
+  "offerPromo": "boosters-chat-support"
+}

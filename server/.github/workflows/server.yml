@@ -1,0 +1,85 @@
+name: Server CI/CD
+
+on:
+  push:
+    branches: [main, develop]
+    paths:
+      - 'server/src/**'
+      - 'server/package.json'
+      - 'server/pnpm-lock.yaml'
+      - 'server/tsconfig.json'
+      - 'server/nodemon.json'
+      - 'server/.github/workflows/**'
+
+env:
+  NODE_ENV: production
+  PORT: ${{ secrets.SERVER_PORT }}
+  DATABASE_URL: ${{ secrets.DATABASE_URL }}
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./server
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18.14.0'
+          cache: 'pnpm'
+          cache-dependency-path: 'server/pnpm-lock.yaml'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Type check
+        run: pnpm type-check
+
+      - name: Lint
+        run: pnpm lint
+
+  build:
+    needs: validate
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    defaults:
+      run:
+        working-directory: ./server
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18.14.0'
+          cache: 'pnpm'
+          cache-dependency-path: 'server/pnpm-lock.yaml'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build
+        run: pnpm build
+
+      - name: Deploy to server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          script: |
+            cd /path/to/server
+            git pull origin main
+            pnpm install
+            pnpm build
+            pm2 reload all --log /path/to/logs/app.log

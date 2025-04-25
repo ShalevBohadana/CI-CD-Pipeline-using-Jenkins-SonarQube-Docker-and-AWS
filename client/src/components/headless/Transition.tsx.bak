@@ -1,0 +1,14 @@
+import React from 'react';
+import { Transition as HeadlessTransition } from '@headlessui/react';
+
+// יצירת הקומפוננטה פשוטה שמעבירה את כל ה-props ל-Transition המקורי
+const Transition = (props) => {
+  return <HeadlessTransition {...props} />;
+};
+
+// העברת כל תת-קומפוננטות
+Transition.Child = HeadlessTransition.Child;
+Transition.Root = HeadlessTransition.Root;
+
+export { Transition };
+export default Transition;

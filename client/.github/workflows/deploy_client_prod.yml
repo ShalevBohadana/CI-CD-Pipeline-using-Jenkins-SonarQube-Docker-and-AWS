@@ -1,0 +1,58 @@
+name: Client CI/CD
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'client/src/**'
+      - 'client/public/**'
+      - 'client/package.json'
+      - 'client/pnpm-lock.yaml'
+      - 'client/vite.config.ts'
+      - 'client/.github/workflows/**'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    defaults:
+      run:
+        working-directory: ./client
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18.14.0'
+          cache: 'pnpm'
+          cache-dependency-path: 'client/pnpm-lock.yaml'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build
+        run: pnpm build
+
+      - name: 📂 Transfer Build to Server
+        uses: appleboy/scp-action@v0.1.4
+        with:
+          host: ${{ secrets.FRONTEND_SERVER_IP }}
+          username: client1
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: 'client/dist/*'
+          target: '/var/www/fullboosts/client'
+
+      - name: 🔄 Restart Nginx
+        uses: appleboy/ssh-action@v0.1.6
+        with:
+          host: ${{ secrets.FRONTEND_SERVER_IP }}
+          username: client1
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            sudo chown -R www-data:www-data /var/www/fullboosts/client
+            sudo systemctl restart nginx

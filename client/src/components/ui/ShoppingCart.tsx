@@ -1,0 +1,141 @@
+/* eslint-disable no-console */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable consistent-return */
+import toast from 'react-hot-toast';
+import { FaDollarSign } from 'react-icons/fa';
+import { RxCross2 } from 'react-icons/rx';
+import { Link, useNavigate } from 'react-router-dom';
+import { v4 } from 'uuid';
+
+import { ROUTER_PATH } from '../../enums/router-path';
+import { useGetCartQuery } from '../../redux/features/cart/cartApi';
+import { closeCartModal } from '../../redux/features/cart/cartSlice';
+import { useCreateOrderWithBalanceMutation } from '../../redux/features/order/orderApi';
+import { useGetUserQuery } from '../../redux/features/user/userApi';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { LoadingCircle } from '../LoadingCircle';
+
+import { ShoppingCartItem } from './ShoppingCartItem';
+import { ShoppingCartSummary } from './ShoppingCartSummary';
+
+export const ShoppingCart = () => {
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+  const ShoppingCartItemWrapper = ({ payload }: { payload: any }): JSX.Element => {
+    // Get the content from the original component
+    const content = ShoppingCartItem({ payload });
+    // Always return a React element by wrapping with a fragment
+    return <>{content}</>;
+  };
+
+  const { user: authStateData } = useAppSelector((state) => state.auth);
+  // ! for getting single user with id
+  const { data: singleUserData, isLoading } = useGetUserQuery(authStateData?.userId || '');
+
+  const { data: cartData, isLoading: isCartLoading } = useGetCartQuery(undefined, {
+    refetchOnMountOrArgChange: true,
+    refetchOnFocus: true,
+    refetchOnReconnect: true,
+  });
+
+  const cartItems = cartData?.data.items ? cartData.data.items : [];
+  const getCartItemsCount = cartItems.length;
+  const onCloseCartModal = async () => {
+    dispatch(closeCartModal(undefined));
+  };
+  const [createOrderWithBalance, { isLoading: isOrderLoading }] =
+    useCreateOrderWithBalanceMutation();
+  if (isOrderLoading || isCartLoading || isLoading) {
+    return <LoadingCircle />;
+  }
+  const buyWithBalance = async () => {
+    if (!cartItems.length) {
+      return toast.error('Please add items to cart');
+    }
+
+    // eslint-disable-next-line prettier/prettier
+    try {
+      const newOrder = {
+        item: cartData?.data.items,
+        userId: authStateData?.userId, // done
+        totalPrice: cartData?.data.totalPrice, // done
+        buyer: singleUserData?.data?._id,
+      };
+      const response: any = await createOrderWithBalance(newOrder);
+      navigate(`/checkout/success?orderId=${response?.data?.data?.paymentId}`);
+    } catch (error) {
+      console.error('Error submitting orders:', error);
+    }
+  };
+
+  return (
+    <div className='flex flex-col gap-3 h-full'>
+      {/* <div className="">
+        <Link to="/" className="inline-flex justify-center items-center">
+          <img
+            className="w-22 xl:w-44 h-4 xl:h-8 "
+            alt="logo"
+            src={logoImgSrc}
+          />
+        </Link>
+      </div> */}
+      <h2 className='flex justify-start items-center gap-2 xl:gap-3'>
+        <span className='text-[clamp(1rem,3vw,1.125rem)] leading-tight font-bold font-tti-bold text-white'>
+          Shopping Cart
+        </span>
+        <span className='text-xs xl:text-[15px] font-tti-medium font-medium text-brand-black-30'>
+          ({getCartItemsCount} item{getCartItemsCount >= 2 ? 's' : ''})
+        </span>
+        <button
+          type='button'
+          onClick={onCloseCartModal}
+          aria-label='close cart drawer'
+          className='inline-flex justify-center items-center ml-auto hover:text-red-600'
+        >
+          <RxCross2 className='inline-flex w-5 h-5 shrink-0 stroke-white fill-white transition-colors' />
+        </button>
+      </h2>
+      <hr className='rounded border border-brand-black-90' />
+      {!cartItems?.length ? (
+        <p className='min-h-[6rem] h-[calc(100dvh-43.5rem)] flex-grow'>No items in your cart!</p>
+      ) : null}
+
+      {cartItems?.length ? (
+        <div className='flex flex-col gap-3 xl:gap-3 overflow-auto min-h-[6rem] h-[calc(100dvh-43.5rem)] flex-grow minimal-scrollbar px-1 xl:px-2'>
+          {cartItems.map((item) => (
+            <ShoppingCartItemWrapper key={v4()} payload={item as any} />
+          ))}
+        </div>
+      ) : null}
+
+      <hr className='rounded border border-brand-black-90' />
+      <ShoppingCartSummary />
+      <div className='pb-2 mt-auto flex items-center'>
+        {cartItems?.length ? (
+          <Link
+            to={ROUTER_PATH.CHECKOUT_PAYMENT}
+            onClick={onCloseCartModal}
+            className='flex max-w-xs mx-auto h-full justify-center items-center px-4 xl:px-6 py-2 text-base xl:text-lg leading-tight rounded-md font-semibold font-oxanium text-white bg-fading-theme-gradient-light-to-deep hover:bg-[linear-gradient(theme("colors.brand.primary.color-1")_100%,theme("colors.brand.primary.color-1")_100%)] transition-all'
+          >
+            Secure checkout
+          </Link>
+        ) : (
+          <button
+            disabled
+            type='button'
+            className='flex max-w-xs mx-auto h-full justify-center items-center px-4 xl:px-6 py-2 text-base xl:text-lg leading-tight rounded-md font-semibold font-oxanium text-white bg-fading-theme-gradient-light-to-deep hover:bg-[linear-gradient(theme("colors.brand.primary.color-1")_100%,theme("colors.brand.primary.color-1")_100%)] transition-all'
+          >
+            Secure checkout
+          </button>
+        )}
+        <button
+          type='button'
+          onClick={buyWithBalance}
+          className='flex max-w-xs mx-auto h-full justify-center items-center px-4 xl:px-6 py-2 text-base xl:text-lg leading-tight rounded-md font-semibold font-oxanium text-white bg-fading-theme-gradient-light-to-deep hover:bg-[linear-gradient(theme("colors.brand.primary.color-1")_100%,theme("colors.brand.primary.color-1")_100%)] transition-all'
+        >
+          <FaDollarSign /> Buy With Balance
+        </button>
+      </div>
+    </div>
+  );
+};

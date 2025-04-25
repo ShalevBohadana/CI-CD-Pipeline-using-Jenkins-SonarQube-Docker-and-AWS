@@ -1,0 +1,21 @@
+import { createSlice } from '@reduxjs/toolkit';
+
+type Payment = {
+  isOpen: boolean;
+};
+
+const initialState: Payment = {
+  isOpen: false,
+};
+
+export const paymentSlice = createSlice({
+  name: 'payment',
+  initialState,
+  reducers: {},
+});
+// export const {} = paymentSlice.actions;
+export const paymentReducer = paymentSlice.reducer;
+// export const selectCartItems = (state: RootState) => state.cart.items;
+// export const selectCartItemsCount = (state: RootState) =>
+//   state.cart.items.length;
+// export const selectCartItemsTotal = (state: RootState) => state.cart.itemsTotal;

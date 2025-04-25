@@ -1,0 +1,51 @@
+{
+  "id": "97eb5a66-75e9-462b-acba-4b39f1df7d13",
+  "status": "activate",
+  "name": "wonder elite g8",
+  "uid": "wonder-elite-g8",
+  "title": "Wonder Elite g8",
+  "showInMenu": true,
+  "bannerUrl": "http://localhost:8000/images/games/20231204516-web-capture-30-11-2023-225059-disc-begonia-f5rg-squarespace-com.webp",
+  "imageUrl": "http://localhost:8000/images/games/20231204700-code-1.webp",
+  "sliders": [
+    {
+      "heading": "hui",
+      "imageUrl": "http://localhost:8000/images/games/20231204967-home-test-lawmaks-and-4-more-pages-personal-microsoft-edge-21-06-23-6-46-08-pm.webp",
+      "videoUrl": "https://www.youtube.com/watch?v=r4sYJfPw0Rk",
+      "createdAt": "2023-10-30T05:27:56.000Z"
+    },
+    {
+      "heading": "two",
+      "imageUrl": "http://localhost:4000/images/games/20231204297-web-capture-19-9-2023-114312-194-163-156-184.webp",
+      "videoUrl": "https://localhost:3000/games/create",
+      "createdAt": "2023-10-28T05:35:19.000Z"
+    }
+  ],
+  "categories": [
+    {
+      "value": "british-indian-ocean-territory",
+      "label": "British Indian Ocean Territory"
+    },
+    {
+      "value": "cameroon",
+      "label": "Cameroon"
+    },
+    {
+      "value": "slovakia",
+      "label": "Slovakia"
+    },
+    {
+      "value": "belgium",
+      "label": "Belgium"
+    },
+    {
+      "value": "new tag",
+      "label": "new tag"
+    }
+  ],
+  "upsell": {
+    "title": "Enjoy Dragonflight new Season",
+    "description": "Order Aberrus raid runs, Mythic+ dungeons, and PvP activities!",
+    "imageUrl": "http://localhost:8000/images/games/20231204953-web-capture-22-6-2023-105352-www-timepiecetitans-com.webp"
+  }
+}

@@ -1,0 +1,34 @@
+.react-datepicker-popper[data-placement^='top']
+  .react-datepicker--time-only
+  .react-datepicker__triangle::before,
+.react-datepicker-popper[data-placement^='bottom']
+  .react-datepicker--time-only
+  .react-datepicker__triangle::before,
+.react-datepicker-popper[data-placement^='top']
+  .react-datepicker--time-only
+  .react-datepicker__triangle::after,
+.react-datepicker-popper[data-placement^='bottom']
+  .react-datepicker--time-only
+  .react-datepicker__triangle::after {
+  @apply left-10 top-0;
+}
+.react-datepicker__time-container
+  .react-datepicker__time
+  .react-datepicker__time-box
+  ul.react-datepicker__time-list
+  li.react-datepicker__time-list-item--selected {
+  @apply bg-brand-primary-color-1;
+}
+.react-datepicker__time-container
+  .react-datepicker__time
+  .react-datepicker__time-box
+  ul.react-datepicker__time-list
+  li.react-datepicker__time-list-item--selected:hover {
+  @apply bg-brand-primary-color-1;
+}
+.react-datepicker__time-container--with-today-button {
+  @apply border-0;
+}
+.react-datepicker.react-datepicker--time-only {
+  @apply border-0 -top-4;
+}

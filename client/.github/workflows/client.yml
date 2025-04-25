@@ -1,0 +1,82 @@
+name: Client CI/CD
+
+on:
+  push:
+    branches: [main, develop]
+    paths:
+      - 'client/src/**'
+      - 'client/public/**'
+      - 'client/package.json'
+      - 'client/pnpm-lock.yaml'
+      - 'client/vite.config.ts'
+      - 'client/.github/workflows/**'
+
+env:
+  NODE_ENV: production
+  VITE_API_URL: ${{ secrets.VITE_API_URL }}
+  VITE_API_KEY: ${{ secrets.VITE_API_KEY }}
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./client
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18.14.0'
+          cache: 'pnpm'
+          cache-dependency-path: 'client/pnpm-lock.yaml' # הוספת נתיב ל-lock file
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Type check
+        run: pnpm type-check
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Build check
+        run: pnpm build --dry-run
+
+  build:
+    needs: validate
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    defaults:
+      run:
+        working-directory: ./client
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18.14.0'
+          cache: 'pnpm'
+          cache-dependency-path: 'client/pnpm-lock.yaml' # הוספת נתיב ל-lock file
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build
+        run: pnpm build
+
+      - name: Deploy to production
+        uses: s0/git-publish-subdir-action@develop
+        env:
+          REPO: git@github.com:your-username/fullboosts.git
+          BRANCH: production
+          FOLDER: dist
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}

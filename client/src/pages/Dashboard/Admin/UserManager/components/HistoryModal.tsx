@@ -1,0 +1,77 @@
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table';
+import { useGetUserHistoryQuery } from '../../../../../redux/features/user/userApi';
+import { GradientBordered } from '../../../../../components/ui/GradientBordered';
+import { Dialog } from '@headlessui/react';
+
+interface HistoryEntry {
+  _id: string;
+  action: string;
+  details: any;
+  timestamp: string;
+}
+
+interface HistoryModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  userId: string;
+  data?: any;
+  isLoading?: boolean;
+}
+
+export const HistoryModal = ({ isOpen, onClose, userId, data, isLoading }: HistoryModalProps) => {
+  const historyEntries = (data?.data as unknown as HistoryEntry[]) || [];
+
+  return (
+    <Dialog open={isOpen} onClose={onClose} className='relative z-50'>
+      <div className='fixed inset-0 bg-black/30' aria-hidden='true' />
+      <div className='fixed inset-0 flex items-center justify-center p-4'>
+        <GradientBordered className='mx-auto w-full md:max-w-3xl rounded-lg bg-gray-900 p-4 md:p-6'>
+          <div className='flex justify-between mb-4'>
+            <Dialog.Title className='text-lg md:text-xl text-white'>User History</Dialog.Title>
+            <button onClick={onClose} className='text-gray-400 hover:text-white transition-colors'>
+              ×
+            </button>
+          </div>
+
+          <div className='overflow-x-auto'>
+            {isLoading ? (
+              <div className='text-white text-center py-4'>Loading history...</div>
+            ) : !historyEntries.length ? (
+              <div className='text-white text-center py-4'>No history found</div>
+            ) : (
+              <Table className='w-full min-w-[600px]'>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead className='text-left text-white w-1/4'>Action</TableHead>
+                    <TableHead className='text-left text-white w-1/2'>Details</TableHead>
+                    <TableHead className='text-left text-white w-1/4'>Date</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {historyEntries.map((entry) => (
+                    <TableRow key={entry._id} className='border-b border-gray-700'>
+                      <TableCell className='text-white break-words'>{entry.action}</TableCell>
+                      <TableCell className='text-white whitespace-pre-wrap break-words'>
+                        {JSON.stringify(entry.details, null, 2)}
+                      </TableCell>
+                      <TableCell className='text-white break-words'>
+                        {new Date(entry.timestamp).toLocaleString()}
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            )}
+          </div>
+        </GradientBordered>
+      </div>
+    </Dialog>
+  );
+};

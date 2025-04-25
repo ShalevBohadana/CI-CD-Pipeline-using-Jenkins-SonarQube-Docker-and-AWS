@@ -1,0 +1,19 @@
+import { Reducer } from 'redux';
+import { createSlice } from '@reduxjs/toolkit';
+
+type Wallet = {
+  balance: number;
+};
+
+const initialState: Wallet = {
+  balance: 0,
+};
+
+export const walletSlice: Slice = createSlice({
+  name: 'wallet',
+  initialState,
+  reducers: {},
+});
+
+// export const {} = walletSlice.actions;
+export const walletReducer: Reducer<WalletState> = walletSlice.reducer;

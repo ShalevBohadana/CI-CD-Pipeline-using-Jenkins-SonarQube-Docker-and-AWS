@@ -1,0 +1,20 @@
+[
+  {
+    "id": "card1",
+    "title": "Automation of processes",
+    "iconType": "automation",
+    "description": "All of our processes are automated as much as possible. We use bots to handle most basic functions, and we are also to make express payments within one day."
+  },
+  {
+    "id": "card2",
+    "title": "Communication with customers without intermediaries",
+    "iconType": "communication",
+    "description": "You can communicate with customers in real-time via a website based chat service."
+  },
+  {
+    "id": "card3",
+    "title": "Simple payouts",
+    "iconType": "simple",
+    "description": "There are various ways to withdraw funds from your personal account including but not limited to VISA, WMZ, PayPal, Bank transfer, QIWI, USD."
+  }
+]

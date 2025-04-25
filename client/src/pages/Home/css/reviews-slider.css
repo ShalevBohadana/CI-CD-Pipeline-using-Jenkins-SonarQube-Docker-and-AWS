@@ -1,0 +1,20 @@
+.reviews-slider {
+  padding-bottom: 4rem;
+}
+.reviews-slider .swiper-pagination {
+  bottom: 4px;
+}
+.reviews-slider .swiper-pagination-bullet {
+  height: 0.375rem;
+  width: 0.625rem;
+  border-radius: 0.625rem;
+  background-color: theme('colors.brand.primary.color-1'/0.5);
+}
+.reviews-slider .swiper-pagination-bullet-active {
+  width: 2rem;
+  background-color: theme('colors.brand.primary.color-1');
+}
+.reviews-slider .swiper-pagination-bullet-active-prev,
+.reviews-slider .swiper-pagination-bullet-active-next {
+  transform: scale(1);
+}

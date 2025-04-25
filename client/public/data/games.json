@@ -1,0 +1,398 @@
+[
+  {
+    "isDisplayedInCatalog": true,
+    "id": "game1",
+    "title": {
+      "en": "Game 1"
+    },
+    "categories": [
+      {
+        "id": "category1",
+        "title": {
+          "en": "Category 1"
+        },
+        "url": {
+          "en": "category1-url"
+        },
+        "subCategories": [
+          {
+            "id": "subcategory1",
+            "title": {
+              "en": "Subcategory 1"
+            },
+            "url": {
+              "en": "subcategory1-url"
+            },
+            "subCategories": null
+          }
+        ]
+      },
+      {
+        "id": "category1154",
+        "title": {
+          "en": "Category 12"
+        },
+        "url": {
+          "en": "category1-url"
+        },
+        "subCategories": [
+          {
+            "id": "subcategory1154",
+            "title": {
+              "en": "Subcategory 12"
+            },
+            "url": {
+              "en": "subcategory1-url"
+            },
+            "subCategories": null
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "isDisplayedInCatalog": true,
+    "id": "game2",
+    "title": {
+      "en": "Game 2"
+    },
+    "categories": [
+      {
+        "id": "category2",
+        "title": {
+          "en": "Category 2"
+        },
+        "url": {
+          "en": "category2-url"
+        },
+        "subCategories": [
+          {
+            "id": "subcategory2",
+            "title": {
+              "en": "Subcategory 2"
+            },
+            "url": {
+              "en": "subcategory2-url"
+            },
+            "subCategories": null
+          },
+          {
+            "id": "subcategory3",
+            "title": {
+              "en": "Subcategory 3"
+            },
+            "url": {
+              "en": "subcategory3-url"
+            },
+            "subCategories": null
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "isDisplayedInCatalog": false,
+    "id": "game3",
+    "title": {
+      "en": "Game 3"
+    },
+    "categories": [
+      {
+        "id": "category3",
+        "title": {
+          "en": "Category 3"
+        },
+        "url": {
+          "en": "category3-url"
+        },
+        "subCategories": null
+      }
+    ]
+  },
+  {
+    "isDisplayedInCatalog": true,
+    "id": "game4",
+    "title": {
+      "en": "Game 4"
+    },
+    "categories": [
+      {
+        "id": "category4",
+        "title": {
+          "en": "Category 455"
+        },
+        "url": {
+          "en": "category4-url"
+        },
+        "subCategories": null
+      },
+      {
+        "id": "category5",
+        "title": {
+          "en": "Category 5"
+        },
+        "url": {
+          "en": "category5-url"
+        },
+        "subCategories": null
+      }
+    ]
+  },
+  {
+    "isDisplayedInCatalog": true,
+    "id": "game5",
+    "title": {
+      "en": "Game 5"
+    },
+    "categories": [
+      {
+        "id": "category6",
+        "title": {
+          "en": "Category 6"
+        },
+        "url": {
+          "en": "category6-url"
+        },
+        "subCategories": [
+          {
+            "id": "subcategory4",
+            "title": {
+              "en": "Subcategory 4"
+            },
+            "url": {
+              "en": "subcategory4-url"
+            },
+            "subCategories": null
+          },
+          {
+            "id": "subcategory5",
+            "title": {
+              "en": "Subcategory 5"
+            },
+            "url": {
+              "en": "subcategory5-url"
+            },
+            "subCategories": null
+          }
+        ]
+      },
+      {
+        "id": "category7",
+        "title": {
+          "en": "Category 7"
+        },
+        "url": {
+          "en": "category7-url"
+        },
+        "subCategories": null
+      }
+    ]
+  },
+  {
+    "isDisplayedInCatalog": true,
+    "id": "game6",
+    "title": {
+      "en": "Game 6"
+    },
+    "categories": [
+      {
+        "id": "category8",
+        "title": {
+          "en": "Category 8"
+        },
+        "url": {
+          "en": "category8-url"
+        },
+        "subCategories": [
+          {
+            "id": "subcategory6",
+            "title": {
+              "en": "Subcategory 6"
+            },
+            "url": {
+              "en": "subcategory6-url"
+            },
+            "subCategories": null
+          }
+        ]
+      },
+      {
+        "id": "category9",
+        "title": {
+          "en": "Category 9"
+        },
+        "url": {
+          "en": "category9-url"
+        },
+        "subCategories": null
+      }
+    ]
+  },
+  {
+    "isDisplayedInCatalog": true,
+    "id": "game7",
+    "title": {
+      "en": "Game 7"
+    },
+    "categories": [
+      {
+        "id": "category10",
+        "title": {
+          "en": "Category 10"
+        },
+        "url": {
+          "en": "category10-url"
+        },
+        "subCategories": null
+      }
+    ]
+  },
+  {
+    "isDisplayedInCatalog": false,
+    "id": "game8",
+    "title": {
+      "en": "Game 8"
+    },
+    "categories": [
+      {
+        "id": "category11",
+        "title": {
+          "en": "Category 11"
+        },
+        "url": {
+          "en": "category11-url"
+        },
+        "subCategories": [
+          {
+            "id": "subcategory7",
+            "title": {
+              "en": "Subcategory 7"
+            },
+            "url": {
+              "en": "subcategory7-url"
+            },
+            "subCategories": null
+          },
+          {
+            "id": "subcategory8",
+            "title": {
+              "en": "Subcategory 8"
+            },
+            "url": {
+              "en": "subcategory8-url"
+            },
+            "subCategories": null
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "isDisplayedInCatalog": true,
+    "id": "game9",
+    "title": {
+      "en": "Game 9"
+    },
+    "categories": [
+      {
+        "id": "category12",
+        "title": {
+          "en": "Category 12"
+        },
+        "url": {
+          "en": "category12-url"
+        },
+        "subCategories": null
+      },
+      {
+        "id": "category13",
+        "title": {
+          "en": "Category 13"
+        },
+        "url": {
+          "en": "category13-url"
+        },
+        "subCategories": null
+      }
+    ]
+  },
+  {
+    "isDisplayedInCatalog": true,
+    "id": "game91",
+    "title": {
+      "en": "Game 91"
+    },
+    "categories": [
+      {
+        "id": "category12",
+        "title": {
+          "en": "Category 12"
+        },
+        "url": {
+          "en": "category12-url"
+        },
+        "subCategories": null
+      },
+      {
+        "id": "category13",
+        "title": {
+          "en": "Category 13"
+        },
+        "url": {
+          "en": "category13-url"
+        },
+        "subCategories": null
+      }
+    ]
+  },
+  {
+    "isDisplayedInCatalog": true,
+    "id": "game10",
+    "title": {
+      "en": "Game 10"
+    },
+    "categories": [
+      {
+        "id": "category14",
+        "title": {
+          "en": "Category 14"
+        },
+        "url": {
+          "en": "category14-url"
+        },
+        "subCategories": null
+      },
+      {
+        "id": "category15",
+        "title": {
+          "en": "Category 15"
+        },
+        "url": {
+          "en": "category15-url"
+        },
+        "subCategories": [
+          {
+            "id": "subcategory9",
+            "title": {
+              "en": "Subcategory 9"
+            },
+            "url": {
+              "en": "subcategory9-url"
+            },
+            "subCategories": null
+          },
+          {
+            "id": "subcategory10",
+            "title": {
+              "en": "Subcategory 10"
+            },
+            "url": {
+              "en": "subcategory10-url"
+            },
+            "subCategories": null
+          }
+        ]
+      }
+    ]
+  }
+]

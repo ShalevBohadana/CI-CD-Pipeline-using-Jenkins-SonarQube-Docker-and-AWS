@@ -1,0 +1,93 @@
+.offer-tags-wrapper {
+}
+.react-tags {
+  @apply relative flex flex-wrap gap-2 items-center bg-transparent border-none cursor-text text-base leading-none rounded-md;
+}
+
+.react-tags.is-disabled {
+  @apply cursor-not-allowed pointer-events-none opacity-75 bg-slate-200;
+}
+
+.react-tags.is-invalid {
+  box-shadow: 0 0 0 2px theme('colors.brand.red.550/50');
+  @apply outline outline-1 outline-brand-red-550;
+}
+.react-tags__label {
+  @apply absolute -left-[625rem] top-auto w-px h-px overflow-hidden;
+}
+
+.react-tags__list {
+  @apply inline-flex flex-wrap gap-2 p-0;
+}
+.react-tags__list-item {
+  @apply inline-flex flex-wrap gap-2 p-0 list-none;
+}
+.react-tags__tag {
+  @apply inline-flex justify-center items-center text-center m-0 p-1.5 border-0 rounded bg-brand-primary-color-1;
+}
+
+.react-tags__tag:hover {
+  @apply bg-brand-primary-color-1/40 text-white;
+}
+.react-tags__tag:after {
+  @apply ml-1 content-['\2715'] text-sm leading-none;
+}
+.react-tags__tag:not(:hover):after {
+  @apply text-white/70;
+}
+
+.react-tags__combobox {
+  @apply max-w-full inline-block;
+}
+.react-tags__combobox-input {
+  @apply !w-full max-w-[10rem] m-0 p-[.2rem] border-0 outline-none bg-none [font-size:inherit] leading-[inherit] bg-transparent;
+}
+
+.react-tags__combobox-input::-webkit-input-placeholder {
+  @apply opacity-100 text-gray-400;
+}
+
+.react-tags__combobox-input::-moz-placeholder {
+  @apply opacity-100 text-gray-400;
+}
+
+.react-tags__combobox-input:-ms-input-placeholder {
+  @apply opacity-100 text-gray-400;
+}
+
+.react-tags__combobox-input::-ms-input-placeholder {
+  @apply opacity-100 text-gray-400;
+}
+
+.react-tags__combobox-input::placeholder {
+  @apply opacity-100 text-gray-400;
+}
+.react-tags__listbox {
+  @apply rounded-md border border-brand-primary-color-1/60 bg-brand-black-100 overflow-y-auto max-h-[11rem] -right-2 -left-2 top-[calc(100%+1rem)] z-[1] absolute shadow-xl shadow-black/80;
+}
+.react-tags__listbox-option {
+  @apply py-1.5 px-2;
+}
+.react-tags__listbox-option:hover {
+  @apply cursor-pointer bg-brand-primary-color-1;
+}
+.react-tags__listbox-option:not([aria-disabled='true']).is-active {
+  @apply text-white bg-brand-primary-color-1;
+}
+.react-tags__listbox-option[aria-disabled='true'] {
+  @apply text-gray-600 cursor-not-allowed pointer-events-none;
+}
+.react-tags__listbox-option[aria-selected='true']:after {
+  @apply ml-2 content-['\2713'];
+}
+.react-tags__listbox-option[aria-selected='true']:not(.is-active):after {
+  @apply text-white;
+}
+
+.react-tags__tag {
+  @apply bg-brand-primary-color-1 m-0 transition;
+}
+
+.react-tags__listbox-option.is-active:hover {
+  @apply bg-brand-primary-color-1;
+}

@@ -1,0 +1,53 @@
+{
+  "status": "activate",
+  "offerType": "currency",
+  "offerPromo": "boosters-chat-support",
+  "name": "Gold",
+  "uid": "gold",
+  "gameUid": "world-of-warcraft",
+  "categoryUid": "gold",
+  "basePrice": 0.15,
+  "discount": {
+    "amount": 2,
+    "type": "percent"
+  },
+  "featuredList": ["Featured list 1", "Featured list 2", "Featured list 3"],
+  "description": "<p>Description for Gold Currency 1</p>",
+  "dynamicFilters": [
+    {
+      "name": "Region",
+      "type": "checkbox",
+      "children": [
+        {
+          "name": "us"
+        },
+        {
+          "name": "eu"
+        }
+      ]
+    },
+    {
+      "name": "faction",
+      "type": "checkbox",
+      "children": [
+        {
+          "name": "Horde"
+        },
+        {
+          "name": "alliance"
+        }
+      ]
+    }
+  ],
+  "image": "https://loremflickr.com/291/300",
+  "servers": [
+    {
+      "title": "Heloud",
+      "region": "us"
+    },
+    {
+      "title": "Whysdft",
+      "region": "eu"
+    }
+  ]
+}

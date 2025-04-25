@@ -1,0 +1,72 @@
+import { useEffect, useMemo } from 'react';
+
+import { LatestOffersButton } from '../../../components/ui/LatestOffersButton';
+import { SelectDropdown } from '../../../components/ui/SelectDropdown';
+import { useGetGamesQuery } from '../../../redux/features/game/gameApi';
+// ייבוא ה-hook מהקומפוננטה המקורית ללא תלות מעגלית
+import { useLatestGamesOffersContext } from '../LatestGamesOffers';
+
+export const ShowLatestOfferGames = () => {
+  const { selectedGameUid, setSelectedGameUid } = useLatestGamesOffersContext();
+  // const { gamesAndCategories } = useGamesAndCategories();
+  const { data: gamesAndCategoriesRes } = useGetGamesQuery('', {
+    refetchOnMountOrArgChange: true,
+    refetchOnFocus: true,
+    refetchOnReconnect: true,
+  });
+
+  const gamesAndCategoriesData = useMemo(() => {
+    return gamesAndCategoriesRes?.data || [];
+  }, [gamesAndCategoriesRes]);
+
+  useEffect(() => {
+    // Check if gamesAndCategories has data and select the first item's uid
+    if (gamesAndCategoriesData && gamesAndCategoriesData?.length >= 1) {
+      setSelectedGameUid(gamesAndCategoriesData[0].uid);
+    }
+  }, [gamesAndCategoriesData, setSelectedGameUid]);
+
+  const gameNames = useMemo(() => {
+    return (
+      gamesAndCategoriesData?.map(({ uid, name }) => ({
+        uid,
+        name,
+      })) || []
+    );
+  }, [gamesAndCategoriesData]);
+
+  const handleGameNameChange = async (uid: string) => {
+    setSelectedGameUid(uid);
+    // console.log(uid);
+  };
+  // console.log(selectedOption, 'selectedOption');
+  return (
+    <div className=''>
+      <div className='relative isolate z-10 w-full xl:hidden'>
+        <h2 className='font-bold font-tti-bold text-lg pb-4 text-center'>Select your game</h2>
+
+        <SelectDropdown
+          placeholder='game name'
+          // onChange={(ev) => console.log(ev)}
+          onChange={handleGameNameChange}
+          options={gameNames}
+          displayPropName='name'
+          valuePropName='uid'
+          selectedDefaultValue={selectedGameUid}
+          // buttonClassName="max-w-[clamp(15.25rem,80vw,19.25rem)] xl:max-w-[unset]"
+        />
+      </div>
+      <div className='hidden xl:flex xl:flex-col'>
+        <div className='h-px w-full bg-fading-theme-gradient-25 ' />
+        {gameNames?.map((item) => (
+          <LatestOffersButton
+            key={item.uid}
+            buttonData={item}
+            selectedOption={selectedGameUid}
+            setSelectedGame={setSelectedGameUid}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};

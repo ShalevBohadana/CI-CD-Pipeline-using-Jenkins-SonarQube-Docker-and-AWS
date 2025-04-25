@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  frontend:
+    image: sbdbenterprise/fullboosts:client-latest
+    ports:
+      - "4000:4000"
+    depends_on:
+      - backend
+
+  backend:
+    image: sbdbenterprise/fullboosts:server-latest
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      MONGO_URI: mongodb://myuser:${MONGO_PASSWORD}@db:27017/prodDB
+    secrets:
+      - mongo_password
+
+  db:
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: myuser
+      MONGO_INITDB_ROOT_PASSWORD_FILE: /run/secrets/mongo_password
+      MONGO_INITDB_DATABASE: prodDB
+    ports:
+      - "27017:27017"
+    secrets:
+      - mongo_password
+
+secrets:
+  mongo_password:
+    external: true

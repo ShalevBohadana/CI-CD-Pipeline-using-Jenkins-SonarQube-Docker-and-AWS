@@ -1,0 +1,300 @@
+[
+  {
+    "id": "1",
+    "uid": "gold",
+    "gameUid": "world-of-warcraft",
+    "name": "Gold",
+    "description": "Description for Gold Currency 1",
+    "filters": [
+      {
+        "id": "f1",
+        "name": "Filter 1",
+        "options": ["Option 1", "Option 2"],
+        "isMultiSelect": true
+      },
+      {
+        "id": "f2",
+        "name": "Filter 2",
+        "options": ["aption Q", "aption 23"],
+        "isMultiSelect": false
+      }
+    ],
+    "servers": [
+      {
+        "id": "s1",
+        "uid": "server1",
+        "currencyUid": "gc1",
+        "gameUid": "game1",
+        "name": "Server 1",
+        "deliveryTime": "1 hour",
+        "inStock": 10,
+        "quantity": 1000,
+        "price": 100,
+        "rating": 4.5,
+        "reviewCount": 20,
+        "faction": "horde",
+        "details": {
+          "minPurchase": 100,
+          "level": 6,
+          "title": "Title 1",
+          "description": "Description for Server 1 Nihil a quia magni nobis nihil. Quaerat omnis eligendi quis deleniti distinctio sint impedit quia quibusdam. Expedita quia eos reprehenderit perferendis possimus. Illum deserunt id."
+        },
+        "reviews": [
+          {
+            "name": "Player 1",
+            "rating": 5,
+            "date": "2023-08-01",
+            "reviewText": "Review for Server 1"
+          },
+          {
+            "name": "Player 2",
+            "rating": 4,
+            "date": "2023-08-01",
+            "reviewText": "Review for Server 2"
+          },
+          {
+            "name": "Player 12",
+            "rating": 2.5,
+            "date": "2023-08-01",
+            "reviewText": "Review for Server 12"
+          },
+          {
+            "name": "Player 22",
+            "rating": 1,
+            "date": "2023-08-01",
+            "reviewText": "Review for Server 22"
+          }
+        ]
+      },
+      {
+        "id": "s2",
+        "uid": "server2",
+        "currencyUid": "gc2",
+        "gameUid": "game1",
+        "name": "Server 2",
+        "deliveryTime": "1 hour",
+        "inStock": 1000000,
+        "quantity": 1000,
+        "price": 100,
+        "rating": 4.5,
+        "reviewCount": 20,
+        "faction": "alliance",
+        "details": {
+          "minPurchase": 100,
+          "level": 2,
+          "title": "Title 2",
+          "description": "Description for Server 2 Et nostrum dolores accusamus nam nihil excepturi ipsam vero dolorum. Velit nesciunt aliquam enim. Eos sunt quas tempore. Ea veniam fugiat explicabo distinctio voluptatem. Possimus tenetur magni libero sint qui. Asperiores voluptate magni quia quia debitis non ratione ullam placeat. Quia et pariatur velit nemo autem repellendus est dignissimos deserunt. Rerum excepturi sed expedita. Voluptatibus delectus et.Sit perferendis iure perferendis magni quod corporis quia magnam. Beatae deserunt aut aut consequuntur doloremque rerum eos eos. Id voluptas est ipsam. Saepe velit commodi natus error libero error dolorem. Accusamus repudiandae quaerat."
+        },
+        "reviews": [
+          {
+            "name": "Player 1",
+            "rating": 5,
+            "date": "2023-08-01",
+            "reviewText": "Review for Server 1"
+          },
+          {
+            "name": "Player 2",
+            "rating": 4,
+            "date": "2023-08-01",
+            "reviewText": "Review for Server 2"
+          },
+          {
+            "name": "Player 12",
+            "rating": 2.5,
+            "date": "2023-08-01",
+            "reviewText": "Review for Server 12"
+          },
+          {
+            "name": "Player 22",
+            "rating": 1,
+            "date": "2023-08-01",
+            "reviewText": "Review for Server 22"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "uid": "gc2",
+    "gameUid": "world-of-warcraft",
+    "name": "Coin",
+    "description": "Description for Coin Currency 1",
+    "filters": [
+      {
+        "id": "f2",
+        "name": "Filter 2",
+        "options": ["Option A", "Option B"],
+        "isMultiSelect": false
+      }
+    ],
+    "servers": [
+      {
+        "console": "xbox",
+        "id": "s2",
+        "uid": "server2",
+        "currencyUid": "gc2",
+        "gameUid": "game1",
+        "name": "Server 2",
+        "deliveryTime": "2 hours",
+        "inStock": 5,
+        "quantity": 500,
+        "price": 50,
+        "rating": 4.0,
+        "reviewCount": 15,
+        "details": {
+          "minPurchase": 50,
+          "level": 5,
+          "title": "Title 2",
+          "description": "Description for Server 2"
+        },
+        "reviews": [
+          {
+            "name": "Player 2",
+            "rating": 5,
+            "date": "2023-08-02",
+            "reviewText": "Review for Server 2"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "uid": "gc3",
+    "gameUid": "valorant",
+    "name": "Gold Currency 2",
+    "description": "Description for Gold Currency 2",
+    "filters": [
+      {
+        "id": "f3",
+        "name": "Filter 3",
+        "options": ["Option X", "Option Y"],
+        "isMultiSelect": true
+      }
+    ],
+    "servers": [
+      {
+        "console": "ps",
+        "id": "s3",
+        "uid": "server3",
+        "currencyUid": "gc3",
+        "gameUid": "game2",
+        "name": "Server 3",
+        "deliveryTime": "3 hours",
+        "inStock": 8,
+        "quantity": 800,
+        "price": 80,
+        "rating": 4.2,
+        "reviewCount": 18,
+        "faction": "horde",
+        "details": {
+          "minPurchase": 80,
+          "level": 7,
+          "title": "Title 3",
+          "description": "Description for Server 3"
+        },
+        "reviews": [
+          {
+            "name": "Player 3",
+            "rating": 4,
+            "date": "2023-08-03",
+            "reviewText": "Review for Server 3"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "uid": "gc4",
+    "gameUid": "diablo4",
+    "name": "Coin Currency 2",
+    "description": "Description for Coin Currency 2",
+    "filters": [
+      {
+        "id": "f4",
+        "name": "Filter 4",
+        "options": ["Option M", "Option N"],
+        "isMultiSelect": false
+      }
+    ],
+    "servers": [
+      {
+        "console": "xbox",
+        "id": "s4",
+        "uid": "server4",
+        "currencyUid": "gc4",
+        "gameUid": "game2",
+        "name": "Server 4",
+        "deliveryTime": "4 hours",
+        "inStock": 12,
+        "quantity": 1200,
+        "price": 120,
+        "rating": 4.8,
+        "reviewCount": 25,
+        "faction": "alliance",
+        "details": {
+          "minPurchase": 120,
+          "level": 4,
+          "title": "Title 4",
+          "description": "Description for Server 4"
+        },
+        "reviews": [
+          {
+            "name": "Player 4",
+            "rating": 4,
+            "date": "2023-08-04",
+            "reviewText": "Review for Server 4"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "5",
+    "uid": "gc5",
+    "gameUid": "assassin-s-creed-valhalla",
+    "name": "Gold Currency 3",
+    "description": "Description for Gold Currency 3",
+    "filters": [
+      {
+        "id": "f5",
+        "name": "Filter 5",
+        "options": ["Option P", "Option Q"],
+        "isMultiSelect": true
+      }
+    ],
+    "servers": [
+      {
+        "console": "ps/xbox",
+        "id": "s5",
+        "uid": "server5",
+        "currencyUid": "gc5",
+        "gameUid": "game3",
+        "name": "Server 5",
+        "deliveryTime": "5 hours",
+        "inStock": 15,
+        "quantity": 1500,
+        "price": 150,
+        "rating": 4.6,
+        "reviewCount": 22,
+        "faction": "alliance",
+        "details": {
+          "minPurchase": 150,
+          "level": 2,
+          "title": "Title 5",
+          "description": "Description for Server 5"
+        },
+        "reviews": [
+          {
+            "name": "Player 5",
+            "rating": 5,
+            "date": "2023-08-05",
+            "reviewText": "Review for Server 5"
+          }
+        ]
+      }
+    ]
+  }
+]

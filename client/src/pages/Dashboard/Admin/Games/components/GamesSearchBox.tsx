@@ -1,0 +1,130 @@
+import { ChangeEvent, Fragment, useState } from 'react';
+import { BiCheck, BiChevronDown } from 'react-icons/bi';
+import { useNavigate } from 'react-router-dom';
+
+import { SearchIcon } from '../../../../../components/icons/icons';
+import { ROUTE_PARAM, ROUTER_PATH } from '../../../../../enums/router-path';
+import { useDebounce } from '../../../../../hooks/useDebounce';
+import { useLazyGetGamesQuery } from '../../../../../redux/features/game/gameApi';
+import { Combobox } from '@headlessui/react';
+import { Transition } from '@headlessui/react';
+
+export const GamesSearchBox = () => {
+  const [selectedItem, setSelectedItem] = useState('');
+  const [query, setQuery] = useState('');
+  // const { data: gamesData } = useGetGamesQuery('', {
+  //   refetchOnMountOrArgChange: true,
+  //   refetchOnFocus: true,
+  //   refetchOnReconnect: true,
+  // });
+  const [searchGames, { data: gamesData }] = useLazyGetGamesQuery();
+  const navigate = useNavigate();
+  const debouncedRequest = useDebounce(async () => {
+    // send request to the backend
+    const searchParams = new URLSearchParams();
+
+    // searchParams.append('skip', '0');
+    // searchParams.append('page', '10');
+    // searchParams.append('limit', '100');
+    searchParams.append('search', query);
+
+    searchGames(searchParams.toString());
+    // access to latest state here
+    // console.log(value);
+  }, 1000);
+
+  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target;
+    setQuery(value);
+    debouncedRequest();
+  };
+
+  const isGameNotFound = gamesData?.data?.length === 0 && query !== '';
+
+  const comboBoxChange = async (gameUid: string) => {
+    if (!isGameNotFound) {
+      setSelectedItem(gameUid);
+      navigate(ROUTER_PATH.GAMES_EDIT.replace(ROUTE_PARAM.UID, gameUid));
+    }
+  };
+
+  return (
+    <div className='relative isolate z-10 md:max-w-xs'>
+      <Combobox value={selectedItem} onChange={comboBoxChange} name='searchGames'>
+        <div className='relative'>
+          <div className='relative w-full cursor-default overflow-clip rounded-lg flex flex-nowrap gap-1 items-center bg-brand-black-80 px-3'>
+            <SearchIcon />
+            <Combobox.Input
+              className='w-full border-none py-2 xl:py-3 leading-5 text-white bg-transparent outline-none'
+              displayValue={(game: { name: string }) => game.name}
+              placeholder='Search'
+              onChange={onChange}
+            />
+            <Combobox.Button className='flex items-center' onClick={async () => searchGames(' ')}>
+              {({ open }) => (
+                <BiChevronDown
+                  className={`h-5 w-5 text-gray-400 transition-transform ${
+                    open ? 'rotate-180' : 'rotate-0'
+                  }`}
+                  aria-hidden='true'
+                />
+              )}
+            </Combobox.Button>
+          </div>
+          <Transition
+            as={Fragment}
+            enter='ease-out duration-300'
+            enterFrom='opacity-0 scale-95'
+            enterTo='opacity-100 scale-100'
+            leave='ease-in duration-200'
+            leaveFrom='opacity-100 scale-100'
+            leaveTo='opacity-0 scale-95'
+            // leave="transition-all ease-in duration-100"
+            // leaveFrom="opacity-100 scale-120"
+            // leaveTo="opacity-0 scale-50"
+            afterLeave={() => setQuery('')}
+          >
+            <Combobox.Options className='absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-brand-black-80 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm'>
+              {isGameNotFound ? (
+                <div className='relative cursor-default select-none py-2 px-4 text-gray-400'>
+                  Nothing found.
+                </div>
+              ) : (
+                gamesData?.data?.map((game) => (
+                  <Combobox.Option
+                    key={game._id}
+                    className={({ active }) =>
+                      `relative cursor-default select-none py-2 pl-10 pr-4 ${
+                        active ? 'bg-brand-primary-color-1 text-white' : 'text-gray-400'
+                      }`
+                    }
+                    value={game.uid}
+                  >
+                    {({ selected, active }) => (
+                      <>
+                        <span
+                          className={`block truncate ${selected ? 'font-medium' : 'font-normal'}`}
+                        >
+                          {game.name}
+                        </span>
+                        {selected ? (
+                          <span
+                            className={`absolute inset-y-0 left-0 flex items-center pl-3 ${
+                              active ? 'text-white' : 'text-brand-primary-color-1'
+                            }`}
+                          >
+                            <BiCheck className='h-5 w-5' aria-hidden='true' />
+                          </span>
+                        ) : null}
+                      </>
+                    )}
+                  </Combobox.Option>
+                ))
+              )}
+            </Combobox.Options>
+          </Transition>
+        </div>
+      </Combobox>
+    </div>
+  );
+};

@@ -1,0 +1,64 @@
+{
+  "name": "fullboosts-root",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently \"cd server && pnpm run dev\" \"cd client && pnpm run dev\"",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,md}\"",
+    "type-check": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "6.21.0",
+    "concurrently": "8.2.2",
+    "eslint": "8.56.0",
+    "eslint-config-prettier": "9.1.0",
+    "eslint-import-resolver-typescript": "^3.8.2",
+    "eslint-plugin-import": "2.29.1",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-prettier": "^5.2.3",
+    "eslint-plugin-react": "7.33.2",
+    "eslint-plugin-react-hooks": "4.6.0",
+    "prettier": "3.2.4",
+    "typescript": "5.3.3"
+  },
+  "pnpm": {
+    "overrides": {
+      "eslint": "8.56.0",
+      "typescript": "5.3.3",
+      "@typescript-eslint/eslint-plugin": "6.21.0",
+      "@typescript-eslint/parser": "6.21.0"
+    },
+    "peerDependencyRules": {
+      "allowedVersions": {
+        "eslint": "8.56.0"
+      }
+    },
+    "onlyBuiltDependencies": [
+      "bcrypt",
+      "esbuild",
+      "protobufjs",
+      "sharp"
+    ]
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "eslint --fix --max-warnings=9999"
+    ],
+    "*.{json,css,md}": [
+      "prettier --write"
+    ]
+  },
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "dependencies": {
+    "@headlessui/react": "^2.2.0",
+    "@types/node": "^18.14.0",
+    "spawn-command": "^1.0.0"
+  }
+}

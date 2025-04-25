@@ -1,0 +1,13 @@
+.banner-slider .swiper-pagination-horizontal.swiper-pagination-bullets {
+  @apply absolute left-[unset] top-[unset] right-4 bottom-4 transform-none h-auto max-w-[theme('width.40')];
+}
+.banner-slider .swiper-pagination-bullet {
+  @apply bg-brand-primary-color-1/50 h-1.5 w-2.5 rounded-[.625rem];
+}
+.banner-slider .swiper-pagination-bullet-active {
+  @apply bg-brand-primary-color-1 w-8;
+}
+.banner-slider .swiper-pagination-bullet-active-prev,
+.banner-slider .swiper-pagination-bullet-active-next {
+  @apply scale-100;
+}

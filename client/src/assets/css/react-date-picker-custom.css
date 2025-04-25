@@ -1,0 +1,23 @@
+.react-datepicker {
+  @apply font-oxanium border-0;
+}
+.react-datepicker__today-button,
+.react-datepicker__current-month {
+  @apply text-brand-primary-color-1;
+}
+.react-datepicker__today-button {
+  @apply rounded-b-[0.3rem];
+}
+.react-datepicker__day--selected {
+  @apply bg-brand-primary-color-1;
+}
+.react-datepicker__day--today {
+  border-radius: 0.3rem;
+  @apply bg-brand-primary-color-1/25;
+}
+.react-datepicker-popper[data-placement^='top'] .react-datepicker__triangle::before,
+.react-datepicker-popper[data-placement^='bottom'] .react-datepicker__triangle::before,
+.react-datepicker-popper[data-placement^='top'] .react-datepicker__triangle::after,
+.react-datepicker-popper[data-placement^='bottom'] .react-datepicker__triangle::after {
+  @apply -left-16;
+}

@@ -1,0 +1,26 @@
+import { createSlice } from '@reduxjs/toolkit';
+
+import { RootState } from '../../store';
+
+type GameState = {
+  activeGame: string;
+};
+
+const initialState: GameState = {
+  activeGame: '',
+};
+
+export const gameSlice = createSlice({
+  name: 'game',
+  initialState,
+  reducers: {
+    setActiveGame: (state, action) => {
+      state.activeGame = action.payload;
+      console.log(state.activeGame);
+    },
+  },
+  extraReducers: () => {},
+});
+export const { setActiveGame } = gameSlice.actions;
+export const gameReducer = gameSlice.reducer;
+export const selectActiveGame = (state: RootState) => state.game.activeGame;

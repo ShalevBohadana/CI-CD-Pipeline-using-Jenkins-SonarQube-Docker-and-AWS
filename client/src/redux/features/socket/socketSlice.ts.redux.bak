@@ -1,0 +1,148 @@
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { RootState } from '../../store';
+
+// Types
+export interface ActiveUser {
+  userId: string;
+  lastSeen?: string; // Changed from Date to string
+  isOnline?: boolean;
+  socketId?: string;
+}
+
+export interface SocketState {
+  isConnected: boolean;
+  activeUsers: ActiveUser[];
+  error: string | null;
+  reconnectAttempts: number;
+  lastConnected?: string; // Changed from Date to string
+}
+
+// Initial state
+const initialState: SocketState = {
+  isConnected: false,
+  activeUsers: [],
+  error: null,
+  reconnectAttempts: 0,
+  lastConnected: undefined,
+};
+
+// Helper function to get current ISO timestamp
+const getCurrentTimestamp = () => new Date().toISOString();
+
+// Slice
+export const socketSlice = createSlice({
+  name: 'socket',
+  initialState,
+  reducers: {
+    initSocket: (state) => state,
+
+    connectionEstablished: (state) => {
+      state.isConnected = true;
+      state.error = null;
+      state.reconnectAttempts = 0;
+      state.lastConnected = getCurrentTimestamp();
+    },
+
+    connectionLost: (state, action: PayloadAction<string | undefined>) => {
+      state.isConnected = false;
+      state.error = action.payload || 'Connection lost';
+      state.reconnectAttempts += 1;
+      state.activeUsers = state.activeUsers.map((user) => ({
+        ...user,
+        isOnline: false,
+      }));
+    },
+
+    updateOnlineUsers: (state, action: PayloadAction<ActiveUser[]>) => {
+      const timestamp = getCurrentTimestamp();
+      state.activeUsers = action.payload.map((user) => ({
+        ...user,
+        isOnline: true,
+        lastSeen: timestamp,
+      }));
+    },
+
+    addActiveUser: (state, action: PayloadAction<ActiveUser>) => {
+      const timestamp = getCurrentTimestamp();
+      const existingUserIndex = state.activeUsers.findIndex(
+        (user) => user.userId === action.payload.userId
+      );
+
+      if (existingUserIndex === -1) {
+        state.activeUsers.push({
+          ...action.payload,
+          isOnline: true,
+          lastSeen: timestamp,
+        });
+      } else {
+        state.activeUsers[existingUserIndex] = {
+          ...state.activeUsers[existingUserIndex],
+          ...action.payload,
+          isOnline: true,
+          lastSeen: timestamp,
+        };
+      }
+    },
+
+    removeActiveUser: (state, action: PayloadAction<string>) => {
+      const userIndex = state.activeUsers.findIndex((user) => user.userId === action.payload);
+
+      if (userIndex !== -1) {
+        state.activeUsers[userIndex] = {
+          ...state.activeUsers[userIndex],
+          isOnline: false,
+          lastSeen: getCurrentTimestamp(),
+        };
+      }
+    },
+
+    updateUserStatus: (state, action: PayloadAction<{ userId: string; isOnline: boolean }>) => {
+      const userIndex = state.activeUsers.findIndex(
+        (user) => user.userId === action.payload.userId
+      );
+
+      if (userIndex !== -1) {
+        state.activeUsers[userIndex] = {
+          ...state.activeUsers[userIndex],
+          isOnline: action.payload.isOnline,
+          lastSeen: getCurrentTimestamp(),
+        };
+      }
+    },
+
+    clearSocketState: () => initialState,
+  },
+});
+
+// Actions
+export const {
+  initSocket,
+  connectionEstablished,
+  connectionLost,
+  updateOnlineUsers,
+  addActiveUser,
+  removeActiveUser,
+  updateUserStatus,
+  clearSocketState,
+} = socketSlice.actions;
+
+// Selectors
+export const selectSocketState = (state: RootState) => state.socket;
+export const selectIsConnected = (state: RootState) => state.socket.isConnected;
+export const selectActiveUsers = (state: RootState) => state.socket.activeUsers;
+export const selectOnlineUsers = (state: RootState) =>
+  state.socket.activeUsers.filter((user) => user.isOnline);
+export const selectSocketError = (state: RootState) => state.socket.error;
+
+// Date formatting selectors
+export const selectFormattedLastSeen = (state: RootState, userId: string) => {
+  const user = state.socket.activeUsers.find((u) => u.userId === userId);
+  return user?.lastSeen ? new Date(user.lastSeen).toLocaleString() : '';
+};
+
+export const selectFormattedLastConnected = (state: RootState) => {
+  return state.socket.lastConnected ? new Date(state.socket.lastConnected).toLocaleString() : '';
+};
+
+// Reducer
+export const socketReducer = socketSlice.reducer;

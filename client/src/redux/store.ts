@@ -1,0 +1,69 @@
+import { configureStore } from '@reduxjs/toolkit';
+import { authReducer } from './features/auth/authSlice';
+import { cartReducer } from './features/cart/cartSlice';
+import { chatReducer } from './features/chat/chatSlice';
+import { currencyReducer } from './features/currency/currencySlice';
+import { currentOfferReducer } from './features/currentOffer/currentOfferSlice';
+import { gameReducer } from './features/game/gameSlice';
+import { paymentReducer } from './features/payment/paymentSlice';
+import { productReducer } from './features/products/productSlice';
+import { socketReducer } from './features/socket/socketSlice';
+import { sortReducer } from './features/sort/sortSlice';
+import { walletReducer } from './features/wallet/walletSlice';
+
+// Define the root state type
+export interface RootState {
+  auth: ReturnType<typeof authReducer>;
+  cart: ReturnType<typeof cartReducer>;
+  chat: ReturnType<typeof chatReducer>;
+  currency: ReturnType<typeof currencyReducer>;
+  currentOffer: ReturnType<typeof currentOfferReducer>;
+  game: ReturnType<typeof gameReducer>;
+  payment: ReturnType<typeof paymentReducer>;
+  product: ReturnType<typeof productReducer>;
+  socket: ReturnType<typeof socketReducer>;
+  sort: ReturnType<typeof sortReducer>;
+  wallet: ReturnType<typeof walletReducer>;
+}
+
+import { combineReducers, Store } from '@/redux-fix';
+import { api } from './api/apiSlice';
+
+const rootReducer = combineReducers({
+  [api.reducerPath]: api.reducer,
+  auth: authReducer,
+  cart: cartReducer,
+  chat: chatReducer,
+  currency: currencyReducer,
+  currentOffer: currentOfferReducer,
+  game: gameReducer,
+  payment: paymentReducer,
+  product: productReducer,
+  socket: socketReducer,
+  sort: sortReducer,
+  wallet: walletReducer,
+});
+
+export const store: Store = configureStore({
+  reducer: {
+    auth: authReducer,
+    cart: cartReducer,
+    chat: chatReducer,
+    currency: currencyReducer,
+    currentOffer: currentOfferReducer,
+    game: gameReducer,
+    payment: paymentReducer,
+    product: productReducer,
+    socket: socketReducer,
+    sort: sortReducer,
+    wallet: walletReducer,
+    [api.reducerPath]: api.reducer, // Add the API reducer
+  },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }).concat(api.middleware), // Add the API middleware
+});
+
+export type AppStore = typeof store;
+export type AppDispatch = AppStore['dispatch'];

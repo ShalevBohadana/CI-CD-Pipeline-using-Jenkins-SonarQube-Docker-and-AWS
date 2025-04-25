@@ -1,0 +1,16 @@
+import React from 'react';
+import { Listbox as HeadlessListbox } from '@headlessui/react';
+
+// יצירת הקומפוננטה פשוטה שמעבירה את כל ה-props
+const Listbox = (props) => {
+  return <HeadlessListbox {...props} />;
+};
+
+// העברת כל תת-קומפוננטות
+Listbox.Button = HeadlessListbox.Button;
+Listbox.Options = HeadlessListbox.Options;
+Listbox.Option = HeadlessListbox.Option;
+Listbox.Label = HeadlessListbox.Label;
+
+export { Listbox };
+export default Listbox;

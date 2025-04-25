@@ -1,0 +1,172 @@
+[
+  {
+    "id": "63fe08ed-e593-5d0c-b6b2-3b3a100c1d35",
+    "uid": "world-of-warcraft",
+    "name": "World of Warcraft",
+    "categories": [
+      "Action",
+      "Adventure",
+      "Role-Playing",
+      "Open World",
+      "Fantasy",
+      "Single Player",
+      "Third-Person",
+      "Story Rich",
+      "Exploration",
+      "Mature",
+      "Atmospheric",
+      "Choices Matter",
+      "Medieval",
+      "Swordplay",
+      "Monsters"
+    ]
+  },
+  {
+    "id": "4de111af-1f89-50da-abb4-f2d2fe8a06ae",
+    "uid": "valorant",
+    "name": "Valorant",
+    "categories": [
+      "Action",
+      "Historical",
+      "Multiplayer",
+      "Crime",
+      "Shooter",
+      "Third-Person",
+      "Sandbox",
+      "Driving",
+      "Story Rich",
+      "Violent",
+      "Mature",
+      "Heists",
+      "Exploration",
+      "Satire",
+      "Urban"
+    ]
+  },
+  {
+    "id": "f1b25095-c2fb-5834-bc14-5f70487aef7b",
+    "uid": "diablo4",
+    "name": "Diablo4",
+    "categories": [
+      "Battle Royale",
+      "Shooter",
+      "Action",
+      "Multiplayer",
+      "Survival",
+      "Online Co-op",
+      "Tactical",
+      "First-Person",
+      "Third-Person",
+      "Realistic",
+      "War",
+      "Competitive",
+      "Fast-Paced",
+      "Vehicles",
+      "Military"
+    ]
+  },
+  {
+    "id": "ad48d94a-25a5-4a44-9dca-ae3bfe947739",
+    "uid": "assassin-s-creed-valhalla",
+    "name": "Assassin's Creed Valhalla",
+    "categories": [
+      "Action",
+      "Adventure",
+      "Role-Playing",
+      "Open World",
+      "Historical",
+      "Vikings",
+      "Stealth",
+      "Single Player",
+      "Third-Person",
+      "Exploration",
+      "Story Rich",
+      "Combat",
+      "Parkour",
+      "Sailing"
+    ]
+  },
+  {
+    "id": "d4f72ab0-e6fb-41c7-af34-7f7da59b5d7c",
+    "uid": "the-legend-of-zelda-breath-of-the-wild",
+    "name": "The Legend of Zelda: Breath of the Wild",
+    "categories": [
+      "Action",
+      "Adventure",
+      "Open World",
+      "Fantasy",
+      "Single Player",
+      "Third-Person",
+      "Exploration",
+      "Puzzle",
+      "Combat",
+      "Story Rich",
+      "Swordplay",
+      "Magic",
+      "Wildlife",
+      "Powers"
+    ]
+  },
+  {
+    "id": "11eb1d79-97a3-4587-8cf2-4b6b972e7e2e",
+    "uid": "red-dead-redemption-2",
+    "name": "Red Dead Redemption 2",
+    "categories": [
+      "Action",
+      "Adventure",
+      "Open World",
+      "Western",
+      "Single Player",
+      "Third-Person",
+      "Story Rich",
+      "Shooter",
+      "Hunting",
+      "Wildlife",
+      "Horses",
+      "Gang",
+      "Outlaws",
+      "Robberies"
+    ]
+  },
+  {
+    "id": "3e424b16-98b5-4e63-8f04-3c97001f6e51",
+    "uid": "rocket-league",
+    "name": "Rocket League",
+    "categories": [
+      "Sports",
+      "Action",
+      "Racing",
+      "Soccer",
+      "Multiplayer",
+      "Competitive",
+      "Online Co-op",
+      "Fast-Paced",
+      "Cars",
+      "Boosters",
+      "Acrobatic",
+      "Goals",
+      "Tournaments"
+    ]
+  },
+  {
+    "id": "e7f5e7e5-835f-43eb-a1fb-ecadab161ed2",
+    "uid": "cyberpunk-2077",
+    "name": "Cyberpunk 2077",
+    "categories": [
+      "Action",
+      "Adventure",
+      "Role-Playing",
+      "Open World",
+      "Cyberpunk",
+      "Single Player",
+      "First-Person",
+      "Story Rich",
+      "Futuristic",
+      "Dystopian",
+      "Customization",
+      "Hacking",
+      "Gangs",
+      "Cybernetics"
+    ]
+  }
+]
