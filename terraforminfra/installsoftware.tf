@@ -1,5 +1,5 @@
 resource "aws_instance" "fullboosts" {
-  ami           = "ami-002b32af8c6b8b958"  
+  ami           = "ami-0069aa073aac75299"  
   instance_type = "t2.micro"
 
   provisioner "remote-exec" {
@@ -41,4 +41,10 @@ resource "aws_instance" "fullboosts" {
       "sudo cp -r prometheus-2.37.0.linux-amd64/console_libraries /etc/prometheus"
     ]
   }
+  connection {
+  type        = "ssh"
+  user        = "ec2-user"  
+  private_key = file("devops-key.pem") 
+  host        = self.public_ip 
+}
 }
