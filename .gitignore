@@ -69,3 +69,6 @@ Thumbs.db
 # Project specific
 .temp/
 .cache/tsconfig.tsbuildinfo
+
+# terraform ignore
+.terraform/
