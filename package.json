@@ -59,6 +59,7 @@
   "dependencies": {
     "@headlessui/react": "^2.2.0",
     "@types/node": "^18.14.0",
+    "bfg": "^0.3.0",
     "spawn-command": "^1.0.0"
   }
 }
