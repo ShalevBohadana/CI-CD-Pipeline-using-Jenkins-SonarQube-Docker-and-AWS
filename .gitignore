@@ -70,34 +70,33 @@ Thumbs.db
 .temp/
 .cache/tsconfig.tsbuildinfo
 
-# Ignore Terraform state files
+# Local .terraform directories
+**/.terraform/*
+terraforminfra/.terraform/
+
+
+# Terraform state files
 *.tfstate
 *.tfstate.*
 
-# Ignore crash log files
+# Crash log files
 crash.log
 crash.*.log
 
-# Ignore Terraform variable files (may contain sensitive data)
+# Terraform variable files
 *.tfvars
 *.tfvars.json
 
-# Ignore override files
+# Override files
 override.tf
 override.tf.json
 *_override.tf
 *_override.tf.json
 
-# Ignore Terraform plan files
-*.tfplan
-
-# Ignore CLI configuration files
+# CLI configuration files
 .terraformrc
 terraform.rc
 
-# Ignore local .terraform directories
-**/.terraform/*
-
-# Ignore IDE-specific directories (optional)
+# IDE directories
 .vscode/
 .idea/
